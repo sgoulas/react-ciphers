@@ -2,4 +2,8 @@ installations & setup:
     ✔ Create Ciphers folder @done(20-06-07 16:51)
     ✔ add material ui core and icons dependency @done(20-06-07 16:19)
     ✔ add jest dependency @done(20-06-07 16:19)
-    ☐ add decrypt functions
+    ✔ add decrypt functions @done(20-06-07 17:35)
+    ☐ test the encrypt / decrypt cipher function with jest
+    ☐ create media card to display cipher input / output
+    ☐ create main page grid to add aforementioned media cards
+    ☐ create main page input text that gets passed (with debounce) to cipher cards
