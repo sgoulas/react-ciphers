@@ -7,3 +7,4 @@ installations & setup:
     ☐ create media card to display cipher input / output
     ☐ create main page grid to add aforementioned media cards
     ☐ create main page input text that gets passed (with debounce) to cipher cards
+    ☐ create a README file.
