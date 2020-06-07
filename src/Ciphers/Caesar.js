@@ -1,12 +1,11 @@
-const Encrypt = (input) => {
+const Encrypt = (input, shift) => {
   const plaintext = input.toLowerCase();
   if (plaintext.length < 1) {
     alert("please enter some plaintext");
     return;
   }
-  const shift = 13;
   let ciphertext = "";
-  const regex = /[a-z]/;
+  var regex = /[a-z]/;
   for (let i = 0; i < plaintext.length; i++) {
     if (regex.test(plaintext.charAt(i)))
       ciphertext += String.fromCharCode(
@@ -19,4 +18,4 @@ const Encrypt = (input) => {
 
 export default Encrypt;
 
-// http://practicalcryptography.com/ciphers/classical-era/rot13/
+// http://practicalcryptography.com/ciphers/classical-era/caesar/
