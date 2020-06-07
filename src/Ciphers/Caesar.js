@@ -1,4 +1,4 @@
-const Encrypt = (input, shift) => {
+export const Encrypt = (input, shift) => {
   const plaintext = input.toLowerCase();
   if (plaintext.length < 1) {
     alert("please enter some plaintext");
@@ -16,6 +16,23 @@ const Encrypt = (input, shift) => {
   return ciphertext;
 };
 
-export default Encrypt;
+export const Decrypt = (input, shift) => {
+  let ciphertext = input.toLowerCase();
+  // do some error checking
+  if (ciphertext.length < 1) {
+    alert("please enter some ciphertext (letters only)");
+    return;
+  }
+  let plaintext = "";
+  var re = /[a-z]/;
+  for (let i = 0; i < ciphertext.length; i++) {
+    if (re.test(ciphertext.charAt(i)))
+      plaintext += String.fromCharCode(
+        ((ciphertext.charCodeAt(i) - 97 + 26 - shift) % 26) + 97
+      );
+    else plaintext += ciphertext.charAt(i);
+  }
+  return plaintext;
+};
 
 // http://practicalcryptography.com/ciphers/classical-era/caesar/
