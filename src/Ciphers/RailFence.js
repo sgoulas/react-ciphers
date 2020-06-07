@@ -1,4 +1,4 @@
-const Encrypt = (input, key) => {
+export const Encrypt = (input, key) => {
   const plaintext = input.toLowerCase().replace(/[^a-z]/g, "");
   let ciphertext = "";
   if (plaintext.length < 1) {
@@ -29,6 +29,39 @@ const Encrypt = (input, key) => {
   return ciphertext;
 };
 
-export default Encrypt;
+export const Decrypt = (encryptedText, key) => {
+  const ciphertext = encryptedText.toLowerCase().replace(/[^a-z]/g, "");
+  if (ciphertext.length < 1) {
+    alert("please enter some ciphertext (letters only)");
+    return;
+  }
+  if (key > Math.floor(2 * (ciphertext.length - 1))) {
+    alert("key is too large for the ciphertext length.");
+    return;
+  }
+  if (key === 1) {
+    return ciphertext;
+  } else {
+    let pt = new Array(ciphertext.length);
+    let k = 0;
+    let line;
+    for (line = 0; line < key - 1; line++) {
+      let skip = 2 * (key - line - 1);
+      let j = 0;
+      for (let i = line; i < ciphertext.length; ) {
+        pt[i] = ciphertext.charAt(k++);
+        if (line == 0 || j % 2 == 0) i += skip;
+        else i += 2 * (key - 1) - skip;
+        j++;
+      }
+    }
+    for (let i = line; i < ciphertext.length; i += 2 * (key - 1)) {
+      pt[i] = ciphertext.charAt(k++);
+    }
+
+    return pt.join("");
+  }
+};
 
 // http://practicalcryptography.com/ciphers/classical-era/rail-fence/
+// key 3
