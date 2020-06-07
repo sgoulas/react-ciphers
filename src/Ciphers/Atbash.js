@@ -17,3 +17,5 @@ const Encrypt = (input) => {
 };
 
 export default Encrypt;
+
+// http://practicalcryptography.com/ciphers/classical-era/atbash-cipher/
