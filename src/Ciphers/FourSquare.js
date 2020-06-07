@@ -73,7 +73,7 @@ export const Decrypt = (encryptedText, key_1, key_2) => {
     plaintext += rt.charAt(5 * b + c);
     plaintext += rt.charAt(5 * d + a);
   }
-  return plaintext.toUpperCase();
+  return plaintext.toLowerCase();
 };
 
 // http://practicalcryptography.com/ciphers/classical-era/four-square/

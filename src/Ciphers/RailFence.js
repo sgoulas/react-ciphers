@@ -50,7 +50,7 @@ export const Decrypt = (encryptedText, key) => {
       let j = 0;
       for (let i = line; i < ciphertext.length; ) {
         pt[i] = ciphertext.charAt(k++);
-        if (line == 0 || j % 2 == 0) i += skip;
+        if (line === 0 || j % 2 === 0) i += skip;
         else i += 2 * (key - 1) - skip;
         j++;
       }
