@@ -3,8 +3,13 @@ installations & setup:
     ✔ add material ui core and icons dependency @done(20-06-07 16:19)
     ✔ add jest dependency @done(20-06-07 16:19)
     ✔ add decrypt functions @done(20-06-07 17:35)
+
+dev tasks:
     ☐ test the encrypt / decrypt cipher function with jest
     ☐ create media card to display cipher input / output
     ☐ create main page grid to add aforementioned media cards
     ☐ create main page input text that gets passed (with debounce) to cipher cards
+
+
+misc tasks:
     ☐ create a README file.
