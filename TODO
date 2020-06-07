@@ -1,4 +1,5 @@
 installations & setup:
-    ☐ Create Ciphers folder
+    ✔ Create Ciphers folder @done(20-06-07 16:51)
     ✔ add material ui core and icons dependency @done(20-06-07 16:19)
     ✔ add jest dependency @done(20-06-07 16:19)
+    ☐ add decrypt functions
