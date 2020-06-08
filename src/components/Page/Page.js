@@ -1,5 +1,4 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 
 const styleObj = {
@@ -8,12 +7,9 @@ const styleObj = {
 
 const Page = (props) => {
   return (
-    <>
-      <CssBaseline />
-      <Container maxWidth={false} style={styleObj}>
-        {props.children}
-      </Container>
-    </>
+    <Container maxWidth={false} style={styleObj}>
+      {props.children}
+    </Container>
   );
 };
 
