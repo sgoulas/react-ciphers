@@ -4,7 +4,6 @@ import Container from "@material-ui/core/Container";
 
 const styleObj = {
   height: "100vh",
-  backgroundColor: "#E9C46A",
 };
 
 const Page = (props) => {

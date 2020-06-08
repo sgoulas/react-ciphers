@@ -28,3 +28,6 @@ d.) Instead of export default you should export {myExportedFunction} or export c
 2.) Some ciphers like Foursquare append 'x' or some other letters. Therefore I wanted to test for substrings but Jest does not support them. Solution: jest-extended
 
 For jest-extended to be implemented, also create a jest.config.js file and setup setupFilesAfterEnv: ["jest-extended"],
+
+3.) Material UI baseline styles a variety of different html elements (body including)
+and due to specificity can override my styles.
