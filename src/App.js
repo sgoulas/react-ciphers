@@ -3,7 +3,7 @@ import Page from "./components/Page/Page";
 import CipherCards from "./components/CipherCards/CipherCards";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-function App() {
+const App = () => {
   return (
     <>
       <CssBaseline />
@@ -12,6 +12,6 @@ function App() {
       </Page>
     </>
   );
-}
+};
 
 export default App;
