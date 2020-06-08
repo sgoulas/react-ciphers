@@ -6,6 +6,7 @@ installations & setup:
 
 dev tasks:
     ✔ test the encrypt / decrypt cipher function with jest @done(20-06-07 23:22)
+    ☐ pick a google font
     ☐ create media card to display cipher input / output
     ☐ create main page grid to add aforementioned media cards
     ☐ create main page input text that gets passed (with debounce) to cipher cards
