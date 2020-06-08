@@ -11,25 +11,25 @@ const CipherCards = () => {
       alignItems="center"
       spacing={3}
     >
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
-      <Grid item xl={4} lg={3} md={4} sm={6} xs={12}>
+      <Grid item xl={3} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
     </Grid>
