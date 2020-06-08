@@ -1,6 +1,6 @@
 Jest + ES6 imports
 
-1.)Jest does not automatically recognizes the ES6 import statement
+1.)Jest does not automatically recognize the ES6 import statement
 
 steps to fix:
 
