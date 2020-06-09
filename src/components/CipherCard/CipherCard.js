@@ -10,6 +10,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 
 const useStyles = makeStyles({
   root: {
+    height: 200,
     width: "auto",
     backgroundColor: "#2A9D8F",
     color: "#fff",
@@ -78,12 +79,7 @@ const CipherCard = (props) => {
           {isChecked ? decryptedText : encryptedText}
         </Typography>
       </CardContent>
-      <CardActions>
-        <CustomSwitch
-          isChecked={isChecked}
-          handleSwitchChange={handleSwitchChange}
-        />
-      </CardActions>
+      <CardActions></CardActions>
     </Card>
   );
 };
