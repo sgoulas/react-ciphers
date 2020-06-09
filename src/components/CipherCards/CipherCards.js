@@ -8,11 +8,15 @@ import * as Caesar from "../../Ciphers/Caesar";
 const ciphers = [
   {
     name: "Atbash",
+    descriptionShort:
+      "The Atbash cipher is a substitution cipher with a specific key where the letters of the alphabet are reversed.",
     encrypt: (plainText) => Atbash.Encrypt(plainText),
     decrypt: (codedText) => Atbash.Decrypt(codedText),
   },
   {
     name: "Base64",
+    descriptionShort:
+      "Base64 is not technically a cipher since there is no key. It is used to encode binary information.",
     encrypt: (plainText) => Base64.Encrypt(plainText),
     decrypt: (codedText) => Base64.Decrypt(codedText),
   },
@@ -35,6 +39,7 @@ const CipherCards = ({ text }) => {
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
         <CipherCard
           cipherName={ciphers[0].name}
+          descriptionShort={ciphers[0].descriptionShort}
           text={text}
           encrypt={ciphers[0].encrypt}
           decrypt={ciphers[0].decrypt}
@@ -43,6 +48,7 @@ const CipherCards = ({ text }) => {
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
         <CipherCard
           cipherName={ciphers[1].name}
+          descriptionShort={ciphers[1].descriptionShort}
           text={text}
           encrypt={ciphers[1].encrypt}
           decrypt={ciphers[1].decrypt}

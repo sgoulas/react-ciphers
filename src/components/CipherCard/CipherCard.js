@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CustomSwitch from "./CustomSwitch";
 import withErrorHandling from "../../utils/withErrorHandling";
+import CardHeader from "@material-ui/core/CardHeader";
 
 const useStyles = makeStyles({
   root: {
@@ -32,7 +33,13 @@ const useStyles = makeStyles({
 });
 
 const CipherCard = (props) => {
-  const { cipherName = "cipher name", text = "", encrypt, decrypt } = props;
+  const {
+    cipherName = "cipher name",
+    descriptionShort = "descriptionShort",
+    text = "",
+    encrypt,
+    decrypt,
+  } = props;
   const classes = useStyles();
   const encryptedText = text
     ? withErrorHandling(encrypt, text)
@@ -48,16 +55,25 @@ const CipherCard = (props) => {
     setIsChecked(!isChecked);
   };
 
+  const title = (
+    <Typography className={classes.title} color="textSecondary" gutterBottom>
+      {cipherName}
+    </Typography>
+  );
+
   return (
     <Card className={classes.root}>
+      <CardHeader
+        action={
+          <CustomSwitch
+            isChecked={isChecked}
+            handleSwitchChange={handleSwitchChange}
+          />
+        }
+        title={title}
+        subheader={descriptionShort}
+      />
       <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          {cipherName}
-        </Typography>
         <Typography variant="h5" component="h2" className={classes.encrypted}>
           {isChecked ? decryptedText : encryptedText}
         </Typography>
