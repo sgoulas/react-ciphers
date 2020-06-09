@@ -5,6 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CustomSwitch from "./CustomSwitch";
+import withErrorHandling from "../../utils/withErrorHandling";
 
 const useStyles = makeStyles({
   root: {
@@ -33,11 +34,13 @@ const useStyles = makeStyles({
 const CipherCard = (props) => {
   const { cipherName = "cipher name", text = "", encrypt, decrypt } = props;
   const classes = useStyles();
-  const encryptedText = text ? encrypt(text) : "Encrypted text";
+  const encryptedText = text
+    ? withErrorHandling(encrypt, text)
+    : "Encrypted text";
   const decryptedText =
     encryptedText === "Encrypted text"
       ? "Encrypted text"
-      : decrypt(encryptedText);
+      : withErrorHandling(decrypt, encryptedText);
 
   const [isChecked, setIsChecked] = useState(false);
 
