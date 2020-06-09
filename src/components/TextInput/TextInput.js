@@ -35,14 +35,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TextInput = () => {
+const TextInput = (props) => {
+  const { text, setText } = props;
   const classes = useStyles();
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setText(value);
+  };
 
   return (
     <CssTextField
       className={classes.margin}
       label="Start typing"
       id="custom-css-outlined-input"
+      value={text}
+      onChange={handleChange}
     />
   );
 };

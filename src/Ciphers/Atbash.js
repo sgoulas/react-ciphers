@@ -24,7 +24,7 @@ export const Decrypt = (input) => {
     return;
   }
   let plaintext = "";
-  var re = /[a-z]/;
+  const re = /[a-z]/;
   for (let i = 0; i < ciphertext.length; i++) {
     if (re.test(ciphertext.charAt(i)))
       plaintext += String.fromCharCode(key.indexOf(ciphertext.charAt(i)) + 97);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Page from "./components/Page/Page";
 import CipherCards from "./components/CipherCards/CipherCards";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import TextInput from "./components/TextInput/TextInput";
 
 const App = () => {
+  const [text, setText] = useState("");
+
   return (
     <>
       <CssBaseline />
@@ -21,10 +23,10 @@ const App = () => {
             here be stylized jumbotron
           </Grid>
           <Grid item xs={12}>
-            <TextInput />
+            <TextInput text={text} setText={setText} />
           </Grid>
           <Grid item xs={12}>
-            <CipherCards />
+            <CipherCards text={text} />
           </Grid>
         </Grid>
       </Page>
