@@ -7,10 +7,28 @@ import Typography from "@material-ui/core/Typography";
 import CustomSwitch from "./CustomSwitch";
 import withErrorHandling from "../../utils/withErrorHandling";
 import CardHeader from "@material-ui/core/CardHeader";
+import { createMuiTheme } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
+});
 
 const useStyles = makeStyles({
   root: {
-    height: 200,
+    [theme.breakpoints.down("md")]: {
+      height: "auto",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: 200,
+    },
     width: "auto",
     backgroundColor: "#2A9D8F",
     color: "#fff",
@@ -23,6 +41,11 @@ const useStyles = makeStyles({
   title: {
     fontSize: 18,
     color: "#264653",
+  },
+  descriptionShort: {
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   encrypted: {
     fontSize: 28,
@@ -62,6 +85,16 @@ const CipherCard = (props) => {
     </Typography>
   );
 
+  const subheader = (
+    <Typography
+      className={classes.descriptionShort}
+      color="textSecondary"
+      gutterBottom
+    >
+      {descriptionShort}
+    </Typography>
+  );
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -72,7 +105,7 @@ const CipherCard = (props) => {
           />
         }
         title={title}
-        subheader={descriptionShort}
+        subheader={subheader}
       />
       <CardContent>
         <Typography variant="h5" component="h2" className={classes.encrypted}>
