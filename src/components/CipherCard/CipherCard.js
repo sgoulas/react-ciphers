@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import CustomSwitch from "./CustomSwitch";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: "auto",
+    width: "auto",
     backgroundColor: "#2A9D8F",
     color: "#fff",
   },
@@ -35,11 +35,14 @@ const CipherCard = (props) => {
   const classes = useStyles();
   const encryptedText = text ? encrypt(text) : "Encrypted text";
   const decryptedText =
-    encryptedText === "Encrypted text" ? "" : decrypt(encryptedText);
-  const [showDecryption, setShowDecryption] = useState(false);
+    encryptedText === "Encrypted text"
+      ? "Encrypted text"
+      : decrypt(encryptedText);
 
-  const toggleDecryption = () => {
-    setShowDecryption(!showDecryption);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleSwitchChange = (event) => {
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -53,13 +56,14 @@ const CipherCard = (props) => {
           {cipherName}
         </Typography>
         <Typography variant="h5" component="h2" className={classes.encrypted}>
-          {encryptedText}
+          {isChecked ? decryptedText : encryptedText}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={toggleDecryption}>
-          Learn More {showDecryption ? decryptedText : null}
-        </Button>
+        <CustomSwitch
+          isChecked={isChecked}
+          handleSwitchChange={handleSwitchChange}
+        />
       </CardActions>
     </Card>
   );

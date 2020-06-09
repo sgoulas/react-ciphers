@@ -3,6 +3,7 @@ import CipherCard from "../CipherCard/CipherCard";
 import Grid from "@material-ui/core/Grid";
 import * as Atbash from "../../Ciphers/Atbash";
 import * as Base64 from "../../Ciphers/Base64";
+import * as Caesar from "../../Ciphers/Caesar";
 
 const ciphers = [
   {
@@ -14,6 +15,11 @@ const ciphers = [
     name: "Base64",
     encrypt: (plainText) => Base64.Encrypt(plainText),
     decrypt: (codedText) => Base64.Decrypt(codedText),
+  },
+  {
+    name: "Caesar",
+    encrypt: (plainText) => Caesar.Encrypt(plainText),
+    decrypt: (codedText) => Caesar.Decrypt(codedText),
   },
 ];
 
@@ -42,9 +48,6 @@ const CipherCards = ({ text }) => {
           decrypt={ciphers[1].decrypt}
         />
       </Grid>
-      {/* <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard />
-      </Grid>
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
       </Grid>
@@ -56,7 +59,10 @@ const CipherCards = ({ text }) => {
       </Grid>
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />
-      </Grid> */}
+      </Grid>
+      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
+        <CipherCard />
+      </Grid>
     </Grid>
   );
 };
