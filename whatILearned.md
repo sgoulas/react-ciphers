@@ -31,3 +31,5 @@ For jest-extended to be implemented, also create a jest.config.js file and setup
 
 3.) Material UI baseline styles a variety of different html elements (body including)
 and due to specificity can override my styles.
+
+4.) Create custom theme breakpoints
