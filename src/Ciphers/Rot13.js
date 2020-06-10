@@ -1,8 +1,7 @@
 export const Encrypt = (input) => {
   const plaintext = input.toLowerCase();
   if (plaintext.length < 1) {
-    alert("please enter some plaintext");
-    return;
+    return "please enter some plaintext";
   }
   const shift = 13;
   let ciphertext = "";
@@ -21,8 +20,7 @@ export const Decrypt = (encryptedText) => {
   const ciphertext = encryptedText.toLowerCase();
   // do some error checking
   if (ciphertext.length < 1) {
-    alert("please enter some ciphertext (letters only)");
-    return;
+    return "please enter some ciphertext (letters only)";
   }
   const shift = 13;
   let plaintext = "";
