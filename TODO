@@ -14,6 +14,7 @@ dev tasks:
     ☐ Fix the height discrepancy due to ciphers' varying description length.
     ☐ Automate jest testing before each commit & only against staged files.
     ☐ Write additional tests.
+    ☐ rewrite logic to a custom hook
 
 
 misc tasks:

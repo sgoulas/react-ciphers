@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import CustomSwitch from "./CustomSwitch";
 import withErrorHandling from "../../utils/withErrorHandling";
 import CardHeader from "@material-ui/core/CardHeader";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -14,6 +13,7 @@ import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import IconButton from "@material-ui/core/IconButton";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
+import CasinoOutlinedIcon from "@material-ui/icons/CasinoOutlined";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -29,12 +29,12 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   root: {
-    [theme.breakpoints.down("md")]: {
-      height: "auto",
-    },
-    [theme.breakpoints.up("md")]: {
-      height: "auto",
-    },
+    // [theme.breakpoints.down("md")]: {
+    //   height: "auto",
+    // },
+    // [theme.breakpoints.up("md")]: {
+    //   height: "auto",
+    // },
     width: "auto",
     minWidth: 250,
     backgroundColor: "#2A9D8F",
@@ -50,9 +50,9 @@ const useStyles = makeStyles({
     color: "#264653",
   },
   descriptionShort: {
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
+    // [theme.breakpoints.down("md")]: {
+    //   display: "none",
+    // },
     fontSize: 16,
     color: "#264653",
   },
@@ -72,24 +72,48 @@ const CipherCard = (props) => {
     text = "",
     encrypt,
     decrypt,
+    shift = false,
   } = props;
   const classes = useStyles();
-  const encryptedText = text
-    ? withErrorHandling(encrypt, text)
-    : "Encrypted text";
-  const decryptedText =
-    encryptedText === "Encrypted text"
-      ? "Encrypted text"
-      : withErrorHandling(decrypt, encryptedText);
-
+  const [encryptedText, setEncryptedText] = useState("");
+  const [decryptedText, setDecryptedText] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
+  const [cipherShift, setCipherShift] = useState(
+    Math.floor(Math.random() * 26)
+  );
+
+  const cipherSpecificProps = {
+    ...(shift && {
+      cipherShift,
+    }),
+  };
 
   const toggleDecryptedText = () => {
     setIsChecked(!isChecked);
   };
 
   const toggleDescription = () => setShowDescription(!showDescription);
+
+  const rollShift = () => {
+    const randomShift = Math.floor(Math.random() * 26);
+    setCipherShift(randomShift);
+  };
+
+  useEffect(() => {
+    const newEncryptedText = text
+      ? withErrorHandling(encrypt, text, cipherSpecificProps)
+      : "Encrypted text";
+    setEncryptedText(newEncryptedText);
+  }, [encrypt, text, cipherSpecificProps]);
+
+  useEffect(() => {
+    const newDecryptedText =
+      encryptedText === "Encrypted text"
+        ? "Encrypted text"
+        : withErrorHandling(decrypt, encryptedText, cipherSpecificProps);
+    setDecryptedText(newDecryptedText);
+  }, [decrypt, encryptedText, cipherSpecificProps]);
 
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -130,7 +154,16 @@ const CipherCard = (props) => {
           </Typography>
         )}
       </CardContent>
-      {showDescription ? null : <CardActions></CardActions>}
+      {showDescription ? null : (
+        <CardActions>
+          {shift && (
+            <IconButton onClick={rollShift}>
+              <CasinoOutlinedIcon />
+              {cipherShift}
+            </IconButton>
+          )}
+        </CardActions>
+      )}
     </Card>
   );
 };

@@ -25,8 +25,8 @@ const ciphers = [
     name: "Caesar",
     descriptionShort:
       "A substitution cipher in which each letter is 'shifted' down the alphabet.",
-    encrypt: (plainText) => Caesar.Encrypt(plainText),
-    decrypt: (codedText) => Caesar.Decrypt(codedText),
+    encrypt: (plainText, shift) => Caesar.Encrypt(plainText, shift),
+    decrypt: (codedText, shift) => Caesar.Decrypt(codedText, shift),
     shift: true,
   },
   {

@@ -1,8 +1,7 @@
 export const Encrypt = (input, shift) => {
   const plaintext = input.toLowerCase();
   if (plaintext.length < 1) {
-    alert("please enter some plaintext");
-    return;
+    return "please enter some plaintext";
   }
   let ciphertext = "";
   var regex = /[a-z]/;
@@ -20,8 +19,7 @@ export const Decrypt = (input, shift) => {
   let ciphertext = input.toLowerCase();
   // do some error checking
   if (ciphertext.length < 1) {
-    alert("please enter some ciphertext (letters only)");
-    return;
+    return "please enter some ciphertext (letters only)";
   }
   let plaintext = "";
   var re = /[a-z]/;
