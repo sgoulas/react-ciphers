@@ -61,8 +61,11 @@ const useStyles = makeStyles({
     fontSize: 28,
     color: "#E9C46A",
   },
-  pos: {
-    marginBottom: 12,
+  shift: {
+    color: "#264653",
+  },
+  key: {
+    color: "#264653",
   },
 });
 
@@ -117,10 +120,14 @@ const CipherCard = ({
   );
 
   const shiftAction = shift && (
-    <IconButton onClick={rollShift}>
-      <CasinoOutlinedIcon />
-      {cipherShift}
-    </IconButton>
+    <>
+      <IconButton onClick={rollShift}>
+        <CasinoOutlinedIcon />
+      </IconButton>
+      <Typography variant="h6" className={classes.shift}>
+        {cipherShift}
+      </Typography>
+    </>
   );
 
   const keysAction = keyGenerator && (
@@ -129,13 +136,17 @@ const CipherCard = ({
         <IconButton onClick={generateFirstKey}>
           <VpnKeyIcon />
         </IconButton>
-        {key_1}
+        <Typography variant="p" className={classes.key}>
+          {key_1}
+        </Typography>
       </Grid>
       <Grid>
         <IconButton onClick={generateSecondKey}>
           <VpnKeyIcon />
         </IconButton>
-        {key_2}
+        <Typography variant="p" className={classes.key}>
+          {key_2}
+        </Typography>
       </Grid>
     </Grid>
   );
