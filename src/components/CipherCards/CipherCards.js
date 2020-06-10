@@ -68,13 +68,11 @@ const CipherCards = ({ text }) => {
       alignItems="center"
       spacing={3}
     >
-      {ciphers.map((cipher) => {
-        return (
-          <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-            <CipherCard {...cipher} />
-          </Grid>
-        );
-      })}
+      {ciphers.map((cipher) => (
+        <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
+          <CipherCard {...cipher} />
+        </Grid>
+      ))}
     </Grid>
   );
 };
