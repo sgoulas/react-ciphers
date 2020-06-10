@@ -34,3 +34,6 @@ For jest-extended to be implemented, also create a jest.config.js file and setup
 4.) Use createMuiTheme to make a simple breakpoints only theme to use custom break points on, without the need of a full fledged theme.
 
 5.) set test script from 'react-scripts test' to 'jest' to run jest with 'npm test'
+
+6.) Changed the capitalization from Filename to filename but git did not pick up the renaming.
+Solution => rename filename to 1filename, add, rename 1filename to filename, add, commit.
