@@ -8,12 +8,10 @@ export const Encrypt = (input, key_1, key_2) => {
   const k2 = key_2.toLowerCase().replace(/[^a-z]/g, "");
   // do some error checking
   if (plaintext.length < 1) {
-    alert("please enter some plaintext (letters and numbers only)");
-    return;
+    return "please enter some plaintext (letters and numbers only)";
   }
   if (k1.length !== 25 || k2.length !== 25) {
-    alert("keysquare must be 25 characters in length");
-    return;
+    return "keysquare must be 25 characters in length";
   }
   if (plaintext.length % 2 === 1) plaintext += "x";
   ciphertext = "";
@@ -52,16 +50,13 @@ export const Decrypt = (encryptedText, key_1, key_2) => {
   let k2 = key_2.toLowerCase().replace(/[^a-z]/g, "");
   // do some error checking
   if (ciphertext.length < 1) {
-    alert("please enter some plaintext (letters and numbers only)");
-    return;
+    return "please enter some plaintext (letters and numbers only)";
   }
   if (k1.length !== 25 || k2.length !== 25) {
-    alert("keysquare must be 25 characters in length");
-    return;
+    return "keysquare must be 25 characters in length";
   }
   if (ciphertext.length % 2 === 1) {
-    alert("ciphertext should be even length (wrong algorithm?)");
-    return;
+    return "ciphertext should be even length (wrong algorithm?)";
   }
   let plaintext = "";
   let rt = "abcdefghiklmnopqrstuvwxyz";

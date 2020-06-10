@@ -31,6 +31,16 @@ const ciphers = [
     shift: true,
   },
   {
+    name: "Four square",
+    descriptionShort:
+      "The four-square cipher uses four 5 by 5 matrices arranged in a square.",
+    encrypt: (plainText, key_1, key_2) =>
+      fourSquare.Encrypt(plainText, key_1, key_2),
+    decrypt: (codedText, key_1, key_2) =>
+      fourSquare.Decrypt(codedText, key_1, key_2),
+    keyGenerator: () => fourSquare.GenRandKey(),
+  },
+  {
     name: "Rot13",
     descriptionShort:
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
@@ -80,14 +90,21 @@ const CipherCards = ({ text }) => {
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
         <CipherCard
           cipherName={ciphers[3].name}
-          descriptionShort={ciphers[3].descriptionShort}
+          descriptionShort={ciphers[4].descriptionShort}
           text={text}
           encrypt={ciphers[3].encrypt}
           decrypt={ciphers[3].decrypt}
+          keyGenerator={ciphers[3].keyGenerator}
         />
       </Grid>
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard />
+        <CipherCard
+          cipherName={ciphers[4].name}
+          descriptionShort={ciphers[4].descriptionShort}
+          text={text}
+          encrypt={ciphers[4].encrypt}
+          decrypt={ciphers[4].decrypt}
+        />
       </Grid>
       <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
         <CipherCard />

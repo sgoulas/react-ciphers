@@ -14,6 +14,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import CasinoOutlinedIcon from "@material-ui/icons/CasinoOutlined";
 import useCipherCard from "../../utils/useCipherCard";
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -72,6 +73,7 @@ const CipherCard = ({
   encrypt,
   decrypt,
   shift = false,
+  keyGenerator = null,
 }) => {
   const classes = useStyles();
   const {
@@ -80,10 +82,14 @@ const CipherCard = ({
     cipherShift,
     showDescription,
     isChecked: showDecryption,
+    key_1,
+    key_2,
     rollShift,
     toggleDecryptedText,
     toggleDescription,
-  } = useCipherCard(text, encrypt, decrypt, shift);
+    generateFirstKey,
+    generateSecondKey,
+  } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator);
 
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -110,6 +116,30 @@ const CipherCard = ({
     </Grid>
   );
 
+  const shiftAction = shift && (
+    <IconButton onClick={rollShift}>
+      <CasinoOutlinedIcon />
+      {cipherShift}
+    </IconButton>
+  );
+
+  const keysAction = keyGenerator && (
+    <Grid container direction="column" justify="center" alignItems="flex-start">
+      <Grid>
+        <IconButton onClick={generateFirstKey}>
+          <VpnKeyIcon />
+        </IconButton>
+        {key_1}
+      </Grid>
+      <Grid>
+        <IconButton onClick={generateSecondKey}>
+          <VpnKeyIcon />
+        </IconButton>
+        {key_2}
+      </Grid>
+    </Grid>
+  );
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -130,12 +160,8 @@ const CipherCard = ({
       </CardContent>
       {showDescription ? null : (
         <CardActions>
-          {shift && (
-            <IconButton onClick={rollShift}>
-              <CasinoOutlinedIcon />
-              {cipherShift}
-            </IconButton>
-          )}
+          {shiftAction}
+          {keysAction}
         </CardActions>
       )}
     </Card>

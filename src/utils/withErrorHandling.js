@@ -8,11 +8,23 @@
 const withErrorHandling = (textFunction, text, props) => {
   let outputText = "";
   const hasShift = Object.prototype.hasOwnProperty.call(props, "cipherShift");
+  const containsFirstKey = Object.prototype.hasOwnProperty.call(props, "key_1");
+  const containsSecondKey = Object.prototype.hasOwnProperty.call(
+    props,
+    "key_2"
+  );
   // check if there are any specific props to take into account
   if (hasShift) {
     const { cipherShift } = props;
     try {
       outputText = textFunction(text, cipherShift);
+    } catch (error) {
+      outputText = error.message;
+    }
+  } else if (containsFirstKey && containsSecondKey) {
+    const { key_1, key_2 } = props;
+    try {
+      outputText = textFunction(text, key_1, key_2);
     } catch (error) {
       outputText = error.message;
     }
