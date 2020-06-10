@@ -1,43 +1,43 @@
-import * as Atbash from "../Ciphers/Atbash";
-import * as Base64 from "../Ciphers/Base64";
-import * as Caesar from "../Ciphers/Caesar";
-import * as FourSquare from "../Ciphers/FourSquare";
-import * as Hill from "../Ciphers/Hill";
-import * as RailFence from "../Ciphers/RailFence";
-import * as Rot13 from "../Ciphers/Rot13";
+import * as atbash from "../Ciphers/Atbash";
+import * as base64 from "../Ciphers/Base64";
+import * as caesar from "../Ciphers/Caesar";
+import * as fourSquare from "../Ciphers/FourSquare";
+import * as hill from "../Ciphers/Hill";
+import * as railFence from "../Ciphers/RailFence";
+import * as rot13 from "../Ciphers/Rot13";
 
 describe("Cipher tests", () => {
   const PLAIN_TEXT = "this is a test input to be encrypted by the ciphers";
   const shift = Math.floor(Math.random() * 26) + 1;
-  const fourSQRKey_1 = FourSquare.GenRandKey();
-  const fourSQRKey_2 = FourSquare.GenRandKey();
+  const fourSQRKey_1 = fourSquare.GenRandKey();
+  const fourSQRKey_2 = fourSquare.GenRandKey();
   const hillKey = "5 17 4 15";
   const railFenceKey = Math.floor(Math.random() * 26) + 1;
 
   describe("Atbash cipher", () => {
     it("Should encrypt a message", () => {
-      expect(Atbash.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
+      expect(atbash.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(Atbash.Decrypt(Atbash.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
+      expect(atbash.Decrypt(atbash.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
     });
   });
 
   describe("Base64 cipher", () => {
     it("Should encrypt a message", () => {
-      expect(Base64.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
+      expect(base64.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(Base64.Decrypt(Base64.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
+      expect(base64.Decrypt(base64.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
     });
   });
 
   describe("Caesar cipher", () => {
     it("Should encrypt a message", () => {
-      expect(Caesar.Encrypt(PLAIN_TEXT, shift)).not.toBe(PLAIN_TEXT);
+      expect(caesar.Encrypt(PLAIN_TEXT, shift)).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(Caesar.Decrypt(Caesar.Encrypt(PLAIN_TEXT, shift), shift)).toBe(
+      expect(caesar.Decrypt(caesar.Encrypt(PLAIN_TEXT, shift), shift)).toBe(
         PLAIN_TEXT
       );
     });
@@ -46,13 +46,13 @@ describe("Cipher tests", () => {
   describe("FourSquare cipher", () => {
     it("Should encrypt a message", () => {
       expect(
-        FourSquare.Encrypt(PLAIN_TEXT, fourSQRKey_1, fourSQRKey_2)
+        fourSquare.Encrypt(PLAIN_TEXT, fourSQRKey_1, fourSQRKey_2)
       ).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
       expect(
-        FourSquare.Decrypt(
-          FourSquare.Encrypt(PLAIN_TEXT, fourSQRKey_1, fourSQRKey_2),
+        fourSquare.Decrypt(
+          fourSquare.Encrypt(PLAIN_TEXT, fourSQRKey_1, fourSQRKey_2),
           fourSQRKey_1,
           fourSQRKey_2
         )
@@ -62,23 +62,23 @@ describe("Cipher tests", () => {
 
   describe("Hill cipher", () => {
     it("Should encrypt a message", () => {
-      expect(Hill.Encrypt(PLAIN_TEXT, hillKey)).not.toBe(PLAIN_TEXT);
+      expect(hill.Encrypt(PLAIN_TEXT, hillKey)).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
       expect(
-        Hill.Decrypt(Hill.Encrypt(PLAIN_TEXT, hillKey), hillKey)
+        hill.Decrypt(hill.Encrypt(PLAIN_TEXT, hillKey), hillKey)
       ).toInclude(PLAIN_TEXT.replace(/\s/g, ""));
     });
   });
 
   describe("Rail fence cipher", () => {
     it("Should encrypt a message", () => {
-      expect(RailFence.Encrypt(PLAIN_TEXT, railFenceKey)).not.toBe(PLAIN_TEXT);
+      expect(railFence.Encrypt(PLAIN_TEXT, railFenceKey)).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
       expect(
-        RailFence.Decrypt(
-          RailFence.Encrypt(PLAIN_TEXT, railFenceKey),
+        railFence.Decrypt(
+          railFence.Encrypt(PLAIN_TEXT, railFenceKey),
           railFenceKey
         )
       );
@@ -87,10 +87,10 @@ describe("Cipher tests", () => {
 
   describe("Rot13 cipher", () => {
     it("Should encrypt a message", () => {
-      expect(Rot13.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
+      expect(rot13.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(Rot13.Decrypt(Rot13.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
+      expect(rot13.Decrypt(rot13.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
     });
   });
 });
