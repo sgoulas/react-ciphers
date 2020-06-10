@@ -32,3 +32,5 @@ For jest-extended to be implemented, also create a jest.config.js file and setup
 3.) Material UI baseline styles a variety of different html elements (body including) and due to specificity can override my styles.
 
 4.) Use createMuiTheme to make a simple breakpoints only theme to use custom break points on, without the need of a full fledged theme.
+
+5.) set test script from 'react-scripts test' to 'jest' to run jest with 'npm test'
