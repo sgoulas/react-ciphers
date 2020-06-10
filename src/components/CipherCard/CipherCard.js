@@ -8,6 +8,12 @@ import CustomSwitch from "./CustomSwitch";
 import withErrorHandling from "../../utils/withErrorHandling";
 import CardHeader from "@material-ui/core/CardHeader";
 import { createMuiTheme } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
+import IconButton from "@material-ui/core/IconButton";
+import LockIcon from "@material-ui/icons/Lock";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -27,9 +33,10 @@ const useStyles = makeStyles({
       height: "auto",
     },
     [theme.breakpoints.up("md")]: {
-      height: 200,
+      height: "auto",
     },
     width: "auto",
+    minWidth: 250,
     backgroundColor: "#2A9D8F",
     color: "#fff",
   },
@@ -46,6 +53,8 @@ const useStyles = makeStyles({
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
+    fontSize: 16,
+    color: "#264653",
   },
   encrypted: {
     fontSize: 28,
@@ -74,10 +83,13 @@ const CipherCard = (props) => {
       : withErrorHandling(decrypt, encryptedText);
 
   const [isChecked, setIsChecked] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
 
-  const handleSwitchChange = (event) => {
+  const toggleDecryptedText = () => {
     setIsChecked(!isChecked);
   };
+
+  const toggleDescription = () => setShowDescription(!showDescription);
 
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -85,34 +97,40 @@ const CipherCard = (props) => {
     </Typography>
   );
 
-  const subheader = (
-    <Typography
-      className={classes.descriptionShort}
-      color="textSecondary"
-      gutterBottom
-    >
-      {descriptionShort}
-    </Typography>
+  const cardHeaderAction = (
+    <Grid container direction="row" justify="center" alignItems="center">
+      <Grid item xs={6}>
+        <IconButton onClick={toggleDecryptedText}>
+          {showDescription ? null : isChecked ? <LockOpenIcon /> : <LockIcon />}
+        </IconButton>
+      </Grid>
+      <Grid item xs={6}>
+        <IconButton onClick={toggleDescription}>
+          {showDescription ? <KeyboardReturnIcon /> : <HelpOutlineIcon />}
+        </IconButton>
+      </Grid>
+    </Grid>
   );
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        action={
-          <CustomSwitch
-            isChecked={isChecked}
-            handleSwitchChange={handleSwitchChange}
-          />
-        }
+        action={cardHeaderAction}
         title={title}
-        subheader={subheader}
+        subheader={"subheader"}
       />
       <CardContent>
-        <Typography variant="h5" className={classes.encrypted}>
-          {isChecked ? decryptedText : encryptedText}
-        </Typography>
+        {showDescription ? (
+          <Typography paragraph className={classes.descriptionShort}>
+            {descriptionShort}
+          </Typography>
+        ) : (
+          <Typography variant="h5" className={classes.encrypted}>
+            {isChecked ? decryptedText : encryptedText}
+          </Typography>
+        )}
       </CardContent>
-      <CardActions></CardActions>
+      {showDescription ? null : <CardActions></CardActions>}
     </Card>
   );
 };
