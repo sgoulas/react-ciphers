@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import withErrorHandling from "../../utils/withErrorHandling";
 import CardHeader from "@material-ui/core/CardHeader";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
