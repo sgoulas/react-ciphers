@@ -14,6 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import LockIcon from "@material-ui/icons/Lock";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import CasinoOutlinedIcon from "@material-ui/icons/CasinoOutlined";
+import useCipherCard from "../../utils/useCipherCard";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -74,45 +75,16 @@ const CipherCard = ({
   shift = false,
 }) => {
   const classes = useStyles();
-  const [encryptedText, setEncryptedText] = useState("");
-  const [decryptedText, setDecryptedText] = useState("");
-  const [showDecryption, setShowDecryption] = useState(false);
-  const [showDescription, setShowDescription] = useState(false);
-  const [cipherShift, setCipherShift] = useState(
-    Math.floor(Math.random() * 26)
-  );
-
-  const cipherSpecificProps = {
-    ...(shift && {
-      cipherShift,
-    }),
-  };
-
-  const toggleDecryptedText = () => {
-    setShowDecryption(!showDecryption);
-  };
-
-  const toggleDescription = () => setShowDescription(!showDescription);
-
-  const rollShift = () => {
-    const randomShift = Math.floor(Math.random() * 26);
-    setCipherShift(randomShift);
-  };
-
-  useEffect(() => {
-    const newEncryptedText = text
-      ? withErrorHandling(encrypt, text, cipherSpecificProps)
-      : "Encrypted text";
-    setEncryptedText(newEncryptedText);
-  }, [encrypt, text, cipherSpecificProps]);
-
-  useEffect(() => {
-    const newDecryptedText =
-      encryptedText === "Encrypted text"
-        ? "Encrypted text"
-        : withErrorHandling(decrypt, encryptedText, cipherSpecificProps);
-    setDecryptedText(newDecryptedText);
-  }, [decrypt, encryptedText, cipherSpecificProps]);
+  const {
+    encryptedText,
+    decryptedText,
+    cipherShift,
+    showDescription,
+    isChecked: showDecryption,
+    rollShift,
+    toggleDecryptedText,
+    toggleDescription,
+  } = useCipherCard(text, encrypt, decrypt, shift);
 
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>

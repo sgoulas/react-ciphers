@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import withErrorHandling from "./withErrorHandling";
 
-const useCipherCard = ({ cipherProps }) => {
-  const { text, encrypt, decrypt, shift = false } = cipherProps;
-
+const useCipherCard = (text, encrypt, decrypt, shift = false) => {
   const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
   const [showDecryption, setShowDecryption] = useState(false);
