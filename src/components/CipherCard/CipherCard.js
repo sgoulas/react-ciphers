@@ -41,16 +41,11 @@ const useStyles = makeStyles({
     backgroundColor: "#2A9D8F",
     color: "#fff",
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
   title: {
     fontSize: 18,
     color: "#264653",
   },
-  descriptionShort: {
+  description: {
     // [theme.breakpoints.down("md")]: {
     //   display: "none",
     // },
@@ -70,8 +65,8 @@ const useStyles = makeStyles({
 });
 
 const CipherCard = ({
-  name = "cipher name",
-  descriptionShort = "descriptionShort",
+  name,
+  description,
   text = "",
   encrypt,
   decrypt,
@@ -160,8 +155,8 @@ const CipherCard = ({
       />
       <CardContent>
         {showDescription ? (
-          <Typography paragraph className={classes.descriptionShort}>
-            {descriptionShort}
+          <Typography paragraph className={classes.description}>
+            {description}
           </Typography>
         ) : (
           <Typography variant="h5" className={classes.encrypted}>

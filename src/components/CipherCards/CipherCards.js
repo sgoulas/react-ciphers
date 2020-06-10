@@ -11,21 +11,21 @@ import * as rot13 from "../../Ciphers/rot13";
 const ciphers = [
   {
     name: "Atbash",
-    descriptionShort:
+    description:
       "A substitution cipher where the letters of the alphabet are reversed based on a key.",
     encrypt: (plainText) => atbash.Encrypt(plainText),
     decrypt: (codedText) => atbash.Decrypt(codedText),
   },
   {
     name: "Base64",
-    descriptionShort:
+    description:
       "Not technically a cipher but widely used to encode binary information.",
     encrypt: (plainText) => base64.Encrypt(plainText),
     decrypt: (codedText) => base64.Decrypt(codedText),
   },
   {
     name: "Caesar",
-    descriptionShort:
+    description:
       "A substitution cipher in which each letter is 'shifted' down the alphabet.",
     encrypt: (plainText, shift) => caesar.Encrypt(plainText, shift),
     decrypt: (codedText, shift) => caesar.Decrypt(codedText, shift),
@@ -33,7 +33,7 @@ const ciphers = [
   },
   {
     name: "Four square",
-    descriptionShort:
+    description:
       "The four-square cipher uses four 5 by 5 matrices arranged in a square.",
     encrypt: (plainText, key_1, key_2) =>
       fourSquare.Encrypt(plainText, key_1, key_2),
@@ -43,7 +43,7 @@ const ciphers = [
   },
   {
     name: "Hill",
-    descriptionShort:
+    description:
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
     encrypt: (plainText, key) => hill.Encrypt(plainText, key),
     decrypt: (codedText, key) => hill.Decrypt(codedText, key),
@@ -51,7 +51,7 @@ const ciphers = [
   },
   {
     name: "Rot13",
-    descriptionShort:
+    description:
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
     encrypt: (plainText) => rot13.Encrypt(plainText),
     decrypt: (codedText) => rot13.Decrypt(codedText),
