@@ -5,6 +5,7 @@ import * as atbash from "../../Ciphers/atbash";
 import * as base64 from "../../Ciphers/base64";
 import * as caesar from "../../Ciphers/caesar";
 import * as fourSquare from "../../Ciphers/fourSquare";
+import * as hill from "../../Ciphers/hill";
 import * as rot13 from "../../Ciphers/rot13";
 
 const ciphers = [
@@ -41,6 +42,14 @@ const ciphers = [
     keyGenerator: () => fourSquare.GenRandKey(),
   },
   {
+    name: "Hill",
+    descriptionShort:
+      "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
+    encrypt: (plainText, key) => hill.Encrypt(plainText, key),
+    decrypt: (codedText, key) => hill.Decrypt(codedText, key),
+    shift: true,
+  },
+  {
     name: "Rot13",
     descriptionShort:
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
@@ -59,59 +68,13 @@ const CipherCards = ({ text }) => {
       alignItems="center"
       spacing={3}
     >
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard
-          cipherName={ciphers[0].name}
-          descriptionShort={ciphers[0].descriptionShort}
-          text={text}
-          encrypt={ciphers[0].encrypt}
-          decrypt={ciphers[0].decrypt}
-        />
-      </Grid>
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard
-          cipherName={ciphers[1].name}
-          descriptionShort={ciphers[1].descriptionShort}
-          text={text}
-          encrypt={ciphers[1].encrypt}
-          decrypt={ciphers[1].decrypt}
-        />
-      </Grid>
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard
-          cipherName={ciphers[2].name}
-          descriptionShort={ciphers[2].descriptionShort}
-          text={text}
-          encrypt={ciphers[2].encrypt}
-          decrypt={ciphers[2].decrypt}
-          shift={ciphers[2].shift}
-        />
-      </Grid>
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard
-          cipherName={ciphers[3].name}
-          descriptionShort={ciphers[4].descriptionShort}
-          text={text}
-          encrypt={ciphers[3].encrypt}
-          decrypt={ciphers[3].decrypt}
-          keyGenerator={ciphers[3].keyGenerator}
-        />
-      </Grid>
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard
-          cipherName={ciphers[4].name}
-          descriptionShort={ciphers[4].descriptionShort}
-          text={text}
-          encrypt={ciphers[4].encrypt}
-          decrypt={ciphers[4].decrypt}
-        />
-      </Grid>
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard />
-      </Grid>
-      <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-        <CipherCard />
-      </Grid>
+      {ciphers.map((cipher) => {
+        return (
+          <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
+            <CipherCard {...cipher} />
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };
