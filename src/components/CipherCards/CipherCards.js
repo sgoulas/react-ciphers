@@ -47,7 +47,7 @@ const ciphers = [
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
     encrypt: (plainText, key) => hill.Encrypt(plainText, key),
     decrypt: (codedText, key) => hill.Decrypt(codedText, key),
-    shift: true,
+    keyInput: true,
   },
   {
     name: "Rot13",
@@ -55,7 +55,6 @@ const ciphers = [
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
     encrypt: (plainText) => rot13.Encrypt(plainText),
     decrypt: (codedText) => rot13.Decrypt(codedText),
-    shift: true,
   },
 ];
 
@@ -68,11 +67,13 @@ const CipherCards = ({ text }) => {
       alignItems="center"
       spacing={3}
     >
-      {ciphers.map((cipher) => (
-        <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
-          <CipherCard {...cipher} />
-        </Grid>
-      ))}
+      {ciphers.map((cipher) => {
+        return (
+          <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
+            <CipherCard text={text} {...cipher} />
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };

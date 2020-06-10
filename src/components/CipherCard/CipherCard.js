@@ -70,7 +70,7 @@ const useStyles = makeStyles({
 });
 
 const CipherCard = ({
-  cipherName = "cipher name",
+  name = "cipher name",
   descriptionShort = "descriptionShort",
   text = "",
   encrypt,
@@ -96,7 +96,7 @@ const CipherCard = ({
 
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
-      {cipherName}
+      {name}
     </Typography>
   );
 
