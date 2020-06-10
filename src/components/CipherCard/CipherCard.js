@@ -65,19 +65,18 @@ const useStyles = makeStyles({
   },
 });
 
-const CipherCard = (props) => {
-  const {
-    cipherName = "cipher name",
-    descriptionShort = "descriptionShort",
-    text = "",
-    encrypt,
-    decrypt,
-    shift = false,
-  } = props;
+const CipherCard = ({
+  cipherName = "cipher name",
+  descriptionShort = "descriptionShort",
+  text = "",
+  encrypt,
+  decrypt,
+  shift = false,
+}) => {
   const classes = useStyles();
   const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
+  const [showDecryption, setShowDecryption] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
   const [cipherShift, setCipherShift] = useState(
     Math.floor(Math.random() * 26)
@@ -90,7 +89,7 @@ const CipherCard = (props) => {
   };
 
   const toggleDecryptedText = () => {
-    setIsChecked(!isChecked);
+    setShowDecryption(!showDecryption);
   };
 
   const toggleDescription = () => setShowDescription(!showDescription);
@@ -125,7 +124,11 @@ const CipherCard = (props) => {
     <Grid container direction="row" justify="center" alignItems="center">
       <Grid item xs={6}>
         <IconButton onClick={toggleDecryptedText}>
-          {showDescription ? null : isChecked ? <LockOpenIcon /> : <LockIcon />}
+          {showDescription ? null : showDecryption ? (
+            <LockOpenIcon />
+          ) : (
+            <LockIcon />
+          )}
         </IconButton>
       </Grid>
       <Grid item xs={6}>
@@ -150,7 +153,7 @@ const CipherCard = (props) => {
           </Typography>
         ) : (
           <Typography variant="h5" className={classes.encrypted}>
-            {isChecked ? decryptedText : encryptedText}
+            {showDecryption ? decryptedText : encryptedText}
           </Typography>
         )}
       </CardContent>
