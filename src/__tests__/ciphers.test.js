@@ -1,10 +1,10 @@
-import * as atbash from "../Ciphers/Atbash";
-import * as base64 from "../Ciphers/Base64";
-import * as caesar from "../Ciphers/Caesar";
-import * as fourSquare from "../Ciphers/FourSquare";
-import * as hill from "../Ciphers/Hill";
-import * as railFence from "../Ciphers/RailFence";
-import * as rot13 from "../Ciphers/Rot13";
+import * as atbash from "../Ciphers/atbash";
+import * as base64 from "../Ciphers/base64";
+import * as caesar from "../Ciphers/caesar";
+import * as fourSquare from "../Ciphers/fourSquare";
+import * as hill from "../Ciphers/hill";
+import * as railFence from "../Ciphers/railFence";
+import * as rot13 from "../Ciphers/rot13";
 
 describe("Cipher tests", () => {
   const PLAIN_TEXT = "this is a test input to be encrypted by the ciphers";
