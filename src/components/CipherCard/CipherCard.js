@@ -8,7 +8,6 @@ import CustomSwitch from "./CustomSwitch";
 import withErrorHandling from "../../utils/withErrorHandling";
 import CardHeader from "@material-ui/core/CardHeader";
 import { createMuiTheme } from "@material-ui/core/styles";
-import CardInput from "./CardInput";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -64,7 +63,6 @@ const CipherCard = (props) => {
     text = "",
     encrypt,
     decrypt,
-    shift,
   } = props;
   const classes = useStyles();
   const encryptedText = text

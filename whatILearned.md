@@ -29,7 +29,6 @@ d.) Instead of export default you should export {myExportedFunction} or export c
 
 For jest-extended to be implemented, also create a jest.config.js file and setup setupFilesAfterEnv: ["jest-extended"],
 
-3.) Material UI baseline styles a variety of different html elements (body including)
-and due to specificity can override my styles.
+3.) Material UI baseline styles a variety of different html elements (body including) and due to specificity can override my styles.
 
-4.) Create custom theme breakpoints
+4.) Use createMuiTheme to make a simple breakpoints only theme to use custom break points on, without the need of a full fledged theme.
