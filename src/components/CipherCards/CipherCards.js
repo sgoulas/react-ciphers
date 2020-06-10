@@ -10,21 +10,21 @@ const ciphers = [
   {
     name: "Atbash",
     descriptionShort:
-      "The Atbash cipher is a substitution cipher with a specific key where the letters of the alphabet are reversed.",
+      "A substitution cipher where the letters of the alphabet are reversed based on a key.",
     encrypt: (plainText) => Atbash.Encrypt(plainText),
     decrypt: (codedText) => Atbash.Decrypt(codedText),
   },
   {
     name: "Base64",
     descriptionShort:
-      "Base64 is not technically a cipher since there is no key. It is used to encode binary information.",
+      "Not technically a cipher but widely used to encode binary information.",
     encrypt: (plainText) => Base64.Encrypt(plainText),
     decrypt: (codedText) => Base64.Decrypt(codedText),
   },
   {
     name: "Caesar",
     descriptionShort:
-      "The Caesar cipher is a substitution cipher in which each letter is 'shifted' a certain number of places down the alphabet.",
+      "A substitution cipher in which each letter is 'shifted' down the alphabet.",
     encrypt: (plainText) => Caesar.Encrypt(plainText),
     decrypt: (codedText) => Caesar.Decrypt(codedText),
     shift: true,
@@ -32,7 +32,7 @@ const ciphers = [
   {
     name: "Rot13",
     descriptionShort:
-      "The ROT13 cipher is a substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
+      "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
     encrypt: (plainText) => Rot13.Encrypt(plainText),
     decrypt: (codedText) => Rot13.Decrypt(codedText),
     shift: true,
