@@ -132,7 +132,7 @@ const CipherCard = ({
         <IconButton onClick={generateFirstKey}>
           <VpnKeyIcon />
         </IconButton>
-        <Typography variant="p" className={classes.key}>
+        <Typography variant="inherit" className={classes.key}>
           {key_1}
         </Typography>
       </Grid>
@@ -141,7 +141,7 @@ const CipherCard = ({
           <IconButton onClick={generateSecondKey}>
             <VpnKeyIcon />
           </IconButton>
-          <Typography variant="p" className={classes.key}>
+          <Typography variant="inherit" className={classes.key}>
             {key_2}
           </Typography>
         </Grid>

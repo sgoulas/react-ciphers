@@ -1,4 +1,28 @@
-export const GenRandKey = () => "5 17 4 15";
+const randomTwoDigitNum = () => Math.floor(Math.random() * 99);
+
+/**
+ * returns a string containg a flat random 2x2 inversible matrix as a key
+ *
+ * |i00 j00|
+ * |i01 j01|
+ */
+export const GenRandKey = () => {
+  let i00,
+    i01,
+    j00,
+    j01 = 0;
+  let isInvertible = false;
+  do {
+    i00 = randomTwoDigitNum();
+    i01 = randomTwoDigitNum();
+    j00 = randomTwoDigitNum();
+    j01 = randomTwoDigitNum();
+    isInvertible = i00 * j01 - i01 * j00 !== 0;
+    console.log(`${i00} ${i01} ${j00} ${j01}`, " isInvertible: ", isInvertible);
+  } while (!isInvertible);
+
+  return `${i00} ${i01} ${j00} ${j01}`;
+};
 
 export const Encrypt = (input, key) => {
   let ciphertext = "";
@@ -44,12 +68,10 @@ export const Decrypt = (encryptedText, key) => {
     return "please enter some ciphertext (letters only, numbers should be spelled)";
   }
   if (ciphertext.length % 2 === 1) {
-    alert("ciphertext is not divisible by 2 (wrong algorithm?)");
-    return;
+    return "ciphertext is not divisible by 2 (wrong algorithm?)";
   }
   if (keys.length !== 4) {
-    alert("key should consist of 4 integers");
-    return;
+    return "key should consist of 4 integers";
   }
   for (let i = 0; i < 4; i++) keys[i] = keys[i] % 26;
   // calc inv matrix
@@ -60,8 +82,7 @@ export const Decrypt = (encryptedText, key) => {
     if ((det * i) % 26 === 1) di = i;
   }
   if (di === 0) {
-    alert("could not invert, try different key");
-    return;
+    return "could not invert, try different key";
   }
   let ikeys = new Array(4);
   ikeys[0] = (di * keys[3]) % 26;

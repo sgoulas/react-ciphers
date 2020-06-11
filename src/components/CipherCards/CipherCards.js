@@ -45,7 +45,7 @@ const ciphers = [
   {
     name: "Hill",
     description:
-      "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
+      "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places. The key must be a 2x2 invertible matrix.",
     encrypt: (plainText, key) => hill.Encrypt(plainText, key),
     decrypt: (codedText, key) => hill.Decrypt(codedText, key),
     keyGenerator: () => hill.GenRandKey(),
@@ -71,7 +71,7 @@ const CipherCards = ({ text }) => {
     >
       {ciphers.map((cipher) => {
         return (
-          <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
+          <Grid item key={cipher.name} xl={4} lg={4} md={4} sm={6} xs={12}>
             <CipherCard text={text} {...cipher} />
           </Grid>
         );
