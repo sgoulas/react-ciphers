@@ -15,6 +15,7 @@ dev tasks:
     ☐ Automate jest testing before each commit & only against staged files.
     ☐ Write additional tests.
     ✔ rewrite logic to a custom hook @done(20-06-11 03:00)
+    ☐ deploy app to github pages
 
 
 misc tasks:

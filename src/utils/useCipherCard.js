@@ -6,7 +6,8 @@ const useCipherCard = (
   encrypt,
   decrypt,
   shift = false,
-  keyGenerator = null
+  keyGenerator,
+  numberOfKeys
 ) => {
   const [encryptedText, setEncryptedText] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
@@ -15,6 +16,7 @@ const useCipherCard = (
   const [cipherShift, setCipherShift] = useState(
     Math.floor(Math.random() * 26)
   );
+  const singleKey = keyGenerator ? keyGenerator() : "";
   const k1 = keyGenerator ? keyGenerator() : "";
   const k2 = keyGenerator ? keyGenerator() : "";
   const [key_1, setKey_1] = useState(k1);
@@ -24,11 +26,13 @@ const useCipherCard = (
     ...(shift && {
       cipherShift,
     }),
-    ...(key_1 &&
-      key_2 && {
-        key_1,
-        key_2,
-      }),
+    ...(numberOfKeys === 1 && {
+      singleKey,
+    }),
+    ...(numberOfKeys === 2 && {
+      key_1,
+      key_2,
+    }),
   };
 
   const generateFirstKey = () => setKey_1(keyGenerator());

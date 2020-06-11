@@ -72,6 +72,7 @@ const CipherCard = ({
   decrypt,
   shift = false,
   keyGenerator = null,
+  numberOfKeys = 0,
 }) => {
   const classes = useStyles();
   const {
@@ -87,7 +88,7 @@ const CipherCard = ({
     toggleDescription,
     generateFirstKey,
     generateSecondKey,
-  } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator);
+  } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator, numberOfKeys);
 
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -135,14 +136,16 @@ const CipherCard = ({
           {key_1}
         </Typography>
       </Grid>
-      <Grid>
-        <IconButton onClick={generateSecondKey}>
-          <VpnKeyIcon />
-        </IconButton>
-        <Typography variant="p" className={classes.key}>
-          {key_2}
-        </Typography>
-      </Grid>
+      {numberOfKeys === 2 && (
+        <Grid>
+          <IconButton onClick={generateSecondKey}>
+            <VpnKeyIcon />
+          </IconButton>
+          <Typography variant="p" className={classes.key}>
+            {key_2}
+          </Typography>
+        </Grid>
+      )}
     </Grid>
   );
 

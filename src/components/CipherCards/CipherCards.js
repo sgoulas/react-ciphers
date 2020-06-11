@@ -40,6 +40,7 @@ const ciphers = [
     decrypt: (codedText, key_1, key_2) =>
       fourSquare.Decrypt(codedText, key_1, key_2),
     keyGenerator: () => fourSquare.GenRandKey(),
+    numberOfKeys: 2,
   },
   {
     name: "Hill",
@@ -47,7 +48,8 @@ const ciphers = [
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
     encrypt: (plainText, key) => hill.Encrypt(plainText, key),
     decrypt: (codedText, key) => hill.Decrypt(codedText, key),
-    keyInput: true,
+    keyGenerator: () => hill.GenRandKey(),
+    numberOfKeys: 1,
   },
   {
     name: "Rot13",

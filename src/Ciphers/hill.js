@@ -1,3 +1,5 @@
+export const GenRandKey = () => "5 17 4 15";
+
 export const Encrypt = (input, key) => {
   let ciphertext = "";
   let plaintext = input.toLowerCase().replace(/[^a-z]/g, "");
@@ -39,10 +41,7 @@ export const Decrypt = (encryptedText, key) => {
   let keys = k.split(" ");
   // do some error checking
   if (ciphertext.length < 1) {
-    alert(
-      "please enter some ciphertext (letters only, numbers should be spelled)"
-    );
-    return;
+    return "please enter some ciphertext (letters only, numbers should be spelled)";
   }
   if (ciphertext.length % 2 === 1) {
     alert("ciphertext is not divisible by 2 (wrong algorithm?)");
