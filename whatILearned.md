@@ -37,3 +37,26 @@ For jest-extended to be implemented, also create a jest.config.js file and setup
 
 6.) Changed the capitalization from Filename to filename but git did not pick up the renaming.
 Solution => rename filename to 1filename, add, rename 1filename to filename, add, commit.
+
+7.) Constant re-renders.
+
+what I was doing wrong:
+
+const [encryptedText, setEncryptedText] = useState("");
+
+//...
+
+useEffect(() => {
+const newEncryptedText = text
+? withErrorHandling(encrypt, text, cipherSpecificProps)
+: "Encrypted text"; // <--- this is the default value but I am setting it now instead of when calling useState
+setEncryptedText(newEncryptedText);
+}, [encrypt, text, cipherSpecificProps]);
+
+So the 'encryptedText' I was getting back was '', then 'Encrypted text' and that was forcing a re-render.
+
+correct approach:
+
+const [encryptedText, setEncryptedText] = useState("Encrypted text");
+
+//... same rest

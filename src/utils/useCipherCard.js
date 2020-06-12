@@ -9,8 +9,8 @@ const useCipherCard = (
   keyGenerator,
   numberOfKeys
 ) => {
-  const [encryptedText, setEncryptedText] = useState("");
-  const [decryptedText, setDecryptedText] = useState("");
+  const [encryptedText, setEncryptedText] = useState("Encrypted text");
+  const [decryptedText, setDecryptedText] = useState("Encrypted text");
   const [showDecryption, setShowDecryption] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
   const [cipherShift, setCipherShift] = useState(
