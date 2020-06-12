@@ -14,7 +14,7 @@ const useCipherCard = (
   const [showDecryption, setShowDecryption] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
   const [cipherShift, setCipherShift] = useState(
-    Math.floor(Math.random() * 26)
+    shift ? Math.floor(Math.random() * 26) : 0
   );
   const k1 = numberOfKeys > 0 ? keyGenerator() : "";
   const k2 = numberOfKeys > 1 ? keyGenerator() : "";

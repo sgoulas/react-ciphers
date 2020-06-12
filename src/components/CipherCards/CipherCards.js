@@ -61,30 +61,30 @@ const ciphers = [
 ];
 
 const CipherCards = ({ text }) => {
-  console.log("[CipherCards]");
-  return (
-    <Grid item key={ciphers[4].name} xl={4} lg={4} md={4} sm={6} xs={12}>
-      <CipherCard text={text} {...ciphers[4]} />
-    </Grid>
-  );
-
+  // console.log("[CipherCards]");
   // return (
-  //   <Grid
-  //     container
-  //     direction="row"
-  //     justify="center"
-  //     alignItems="center"
-  //     spacing={3}
-  //   >
-  //     {ciphers.map((cipher) => {
-  //       return (
-  //         <Grid item key={cipher.name} xl={4} lg={4} md={4} sm={6} xs={12}>
-  //           <CipherCard text={text} {...cipher} />
-  //         </Grid>
-  //       );
-  //     })}
+  //   <Grid item key={ciphers[4].name} xl={4} lg={4} md={4} sm={6} xs={12}>
+  //     <CipherCard text={text} {...ciphers[4]} />
   //   </Grid>
   // );
+
+  return (
+    <Grid
+      container
+      direction="row"
+      justify="center"
+      alignItems="center"
+      spacing={3}
+    >
+      {ciphers.map((cipher) => {
+        return (
+          <Grid item key={cipher.name} xl={4} lg={4} md={4} sm={6} xs={12}>
+            <CipherCard text={text} {...cipher} />
+          </Grid>
+        );
+      })}
+    </Grid>
+  );
 };
 
 export default CipherCards;
