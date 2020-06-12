@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import withErrorHandling from "./withErrorHandling";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import copy from "copy-to-clipboard";
 
 const useCipherCard = (
@@ -41,6 +43,7 @@ const useCipherCard = (
   const toggleDescription = () => setShowDescription(!showDescription);
   const copyEncryptedText = () => {
     copy(encryptedText);
+    toast.info("Copied to clipboard!");
   };
 
   const rollShift = () => {

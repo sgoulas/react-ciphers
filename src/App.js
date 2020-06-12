@@ -4,6 +4,7 @@ import CipherCards from "./components/CipherCards/CipherCards";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import TextInput from "./components/TextInput/TextInput";
+import { ToastContainer, Slide } from "react-toastify";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -11,6 +12,19 @@ const App = () => {
   return (
     <>
       <CssBaseline />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        transition={Slide}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
       <Page>
         <Grid
           container
