@@ -61,7 +61,7 @@ const ciphers = [
 ];
 
 const CipherCards = ({ text }) => {
-  // console.log("[CipherCards]");
+  console.log("[CipherCards]");
   // return (
   //   <Grid item key={ciphers[4].name} xl={4} lg={4} md={4} sm={6} xs={12}>
   //     <CipherCard text={text} {...ciphers[4]} />
