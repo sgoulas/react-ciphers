@@ -15,6 +15,7 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import CasinoOutlinedIcon from "@material-ui/icons/CasinoOutlined";
 import useCipherCard from "../../utils/useCipherCard";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -98,7 +99,7 @@ const CipherCard = ({
 
   const cardHeaderAction = (
     <Grid container direction="row" justify="center" alignItems="center">
-      <Grid item xs={6}>
+      <Grid item xs={4}>
         <IconButton onClick={toggleDecryptedText}>
           {showDescription ? null : showDecryption ? (
             <LockOpenIcon />
@@ -107,7 +108,12 @@ const CipherCard = ({
           )}
         </IconButton>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={4}>
+        <IconButton>
+          <FileCopyIcon />
+        </IconButton>
+      </Grid>
+      <Grid item xs={4}>
         <IconButton onClick={toggleDescription}>
           {showDescription ? <KeyboardReturnIcon /> : <HelpOutlineIcon />}
         </IconButton>

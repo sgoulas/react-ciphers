@@ -67,7 +67,6 @@ const CipherCards = ({ text }) => {
   //     <CipherCard text={text} {...ciphers[4]} />
   //   </Grid>
   // );
-
   return (
     <Grid
       container
