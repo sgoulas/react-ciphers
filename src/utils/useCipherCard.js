@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import withErrorHandling from "./withErrorHandling";
+import copy from "copy-to-clipboard";
 
 const useCipherCard = (
   text,
@@ -38,6 +39,9 @@ const useCipherCard = (
   const generateSecondKey = () => setKey_2(keyGenerator());
   const toggleDecryptedText = () => setShowDecryption(!showDecryption);
   const toggleDescription = () => setShowDescription(!showDescription);
+  const copyEncryptedText = () => {
+    copy(encryptedText);
+  };
 
   const rollShift = () => {
     const randomShift = Math.floor(Math.random() * 26);
@@ -72,6 +76,7 @@ const useCipherCard = (
     toggleDescription,
     generateFirstKey,
     generateSecondKey,
+    copyEncryptedText,
   };
 };
 

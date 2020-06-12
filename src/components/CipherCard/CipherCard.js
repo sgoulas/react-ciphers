@@ -38,6 +38,7 @@ const useStyles = makeStyles({
     //   height: "auto",
     // },
     width: "auto",
+    height: 250,
     minWidth: 250,
     backgroundColor: "#2A9D8F",
     color: "#fff",
@@ -89,6 +90,7 @@ const CipherCard = ({
     toggleDescription,
     generateFirstKey,
     generateSecondKey,
+    copyEncryptedText,
   } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator, numberOfKeys);
   console.log("[CipherCards]");
   const title = (
@@ -109,7 +111,7 @@ const CipherCard = ({
         </IconButton>
       </Grid>
       <Grid item xs={4}>
-        <IconButton>
+        <IconButton onClick={copyEncryptedText}>
           <FileCopyIcon />
         </IconButton>
       </Grid>
