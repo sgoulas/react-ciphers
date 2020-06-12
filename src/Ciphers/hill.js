@@ -6,22 +6,26 @@ const randomTwoDigitNum = () => Math.floor(Math.random() * 99);
  * |i00 j00|
  * |i01 j01|
  */
-export const GenRandKey = () => {
-  let i00,
-    i01,
-    j00,
-    j01 = 0;
-  let isInvertible = false;
-  do {
-    i00 = randomTwoDigitNum();
-    i01 = randomTwoDigitNum();
-    j00 = randomTwoDigitNum();
-    j01 = randomTwoDigitNum();
-    isInvertible = i00 * j01 - i01 * j00 !== 0;
-    console.log(`${i00} ${i01} ${j00} ${j01}`, " isInvertible: ", isInvertible);
-  } while (!isInvertible);
+// export const GenRandKey = () => {
+//   let i00,
+//     i01,
+//     j00,
+//     j01 = 0;
+//   let isInvertible = false;
+//   do {
+//     i00 = randomTwoDigitNum();
+//     i01 = randomTwoDigitNum();
+//     j00 = randomTwoDigitNum();
+//     j01 = randomTwoDigitNum();
+//     isInvertible = i00 * j01 - i01 * j00 !== 0;
+//     console.log(`${i00} ${i01} ${j00} ${j01}`, " isInvertible: ", isInvertible);
+//   } while (!isInvertible);
 
-  return `${i00} ${i01} ${j00} ${j01}`;
+//   return `${i00} ${i01} ${j00} ${j01}`;
+// };
+
+export const GenRandKey = () => {
+  return "5 17 4 15";
 };
 
 export const Encrypt = (input, key) => {
@@ -37,8 +41,7 @@ export const Encrypt = (input, key) => {
     plaintext = plaintext + "x";
   }
   if (keys.length !== 4) {
-    alert("key should consist of 4 integers");
-    return;
+    return "key should consist of 4 integers";
   }
   for (let i = 0; i < 4; i++) keys[i] = keys[i] % 26;
   ciphertext = "";

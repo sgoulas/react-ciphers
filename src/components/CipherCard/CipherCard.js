@@ -71,7 +71,7 @@ const CipherCard = ({
   encrypt,
   decrypt,
   shift = false,
-  keyGenerator = null,
+  keyGenerator,
   numberOfKeys = 0,
 }) => {
   const classes = useStyles();
@@ -89,7 +89,7 @@ const CipherCard = ({
     generateFirstKey,
     generateSecondKey,
   } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator, numberOfKeys);
-
+  console.log("[CipherCard]");
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
       {name}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CipherCard from "../CipherCard/CipherCard";
 import Grid from "@material-ui/core/Grid";
 import * as atbash from "../../Ciphers/atbash";
@@ -39,7 +39,7 @@ const ciphers = [
       fourSquare.Encrypt(plainText, key_1, key_2),
     decrypt: (codedText, key_1, key_2) =>
       fourSquare.Decrypt(codedText, key_1, key_2),
-    keyGenerator: () => fourSquare.GenRandKey(),
+    keyGenerator: fourSquare.GenRandKey,
     numberOfKeys: 2,
   },
   {
@@ -48,7 +48,7 @@ const ciphers = [
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places. The key must be a 2x2 invertible matrix.",
     encrypt: (plainText, key) => hill.Encrypt(plainText, key),
     decrypt: (codedText, key) => hill.Decrypt(codedText, key),
-    keyGenerator: () => hill.GenRandKey(),
+    keyGenerator: hill.GenRandKey,
     numberOfKeys: 1,
   },
   {
@@ -61,23 +61,30 @@ const ciphers = [
 ];
 
 const CipherCards = ({ text }) => {
+  console.log("[CipherCards]");
   return (
-    <Grid
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-      spacing={3}
-    >
-      {ciphers.map((cipher) => {
-        return (
-          <Grid item key={cipher.name} xl={4} lg={4} md={4} sm={6} xs={12}>
-            <CipherCard text={text} {...cipher} />
-          </Grid>
-        );
-      })}
+    <Grid item key={ciphers[4].name} xl={4} lg={4} md={4} sm={6} xs={12}>
+      <CipherCard text={text} {...ciphers[4]} />
     </Grid>
   );
+
+  // return (
+  //   <Grid
+  //     container
+  //     direction="row"
+  //     justify="center"
+  //     alignItems="center"
+  //     spacing={3}
+  //   >
+  //     {ciphers.map((cipher) => {
+  //       return (
+  //         <Grid item key={cipher.name} xl={4} lg={4} md={4} sm={6} xs={12}>
+  //           <CipherCard text={text} {...cipher} />
+  //         </Grid>
+  //       );
+  //     })}
+  //   </Grid>
+  // );
 };
 
 export default CipherCards;

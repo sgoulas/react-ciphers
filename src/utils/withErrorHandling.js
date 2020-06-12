@@ -10,11 +10,10 @@ const withErrorHandling = (textFunction, text, props) => {
   const hasShift = Object.prototype.hasOwnProperty.call(props, "cipherShift");
   const containsSingleKey = Object.prototype.hasOwnProperty.call(
     props,
-    "singleKey"
+    "key_1"
   );
   const containsTwoKeys =
-    Object.prototype.hasOwnProperty.call(props, "key_1") &&
-    Object.prototype.hasOwnProperty.call(props, "key_2");
+    containsSingleKey && Object.prototype.hasOwnProperty.call(props, "key_2");
 
   try {
     if (hasShift) {
@@ -24,8 +23,8 @@ const withErrorHandling = (textFunction, text, props) => {
       const { key_1, key_2 } = props;
       outputText = textFunction(text, key_1, key_2);
     } else if (containsSingleKey) {
-      const { singleKey } = props;
-      outputText = textFunction(text, singleKey);
+      const { key_1 } = props;
+      outputText = textFunction(text, key_1);
     } else {
       outputText = textFunction(text);
     }
