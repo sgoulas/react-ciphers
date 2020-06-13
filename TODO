@@ -14,7 +14,7 @@ dev tasks:
     ✔ do not roll shift each time useCipherCard is called. @done(20-06-13 20:59)
     ✔ reduce re-renders @done(20-06-13 20:59)
     ✔ Fix the height discrepancy due to ciphers' varying description length. @done(20-06-13 23:19)
-    ✔ Automate jest testing before each commit & only against staged files. @done(20-06-13 23:40)
+    ✔ Automate jest testing before each commit. @done(20-06-13 23:40)
     ☐ Write additional tests.
     ✔ add app icon @done(20-06-13 23:24)
     ✔ add page title @done(20-06-13 23:24)
