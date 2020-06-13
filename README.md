@@ -1,6 +1,6 @@
 # react-ciphers
 
-## Into
+## Introduction
 
 React ciphers is a personal project where I display seven different ciphers and show how they dynamically encrypt / decrypt the user input.
 
