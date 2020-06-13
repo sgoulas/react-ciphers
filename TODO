@@ -16,8 +16,8 @@ dev tasks:
     ✔ Fix the height discrepancy due to ciphers' varying description length. @done(20-06-13 23:19)
     ☐ Automate jest testing before each commit & only against staged files.
     ☐ Write additional tests.
-    ☐ add app icon
-    ☐ add page title
+    ✔ add app icon @done(20-06-13 23:24)
+    ✔ add page title @done(20-06-13 23:24)
     ✔ rewrite logic to a custom hook @done(20-06-11 03:00)
     ☐ deploy app to github pages
 

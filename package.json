@@ -22,6 +22,12 @@
     "test": "jest",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -39,6 +45,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.10.2",
+    "husky": "^4.2.5",
     "jest-extended": "^0.11.5"
   }
 }
