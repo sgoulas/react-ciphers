@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
+    height: "20vh",
     backgroundColor: "#F4A261",
     padding: 0,
   },

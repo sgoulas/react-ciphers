@@ -25,9 +25,8 @@ const App = () => {
         draggable
         pauseOnHover
       />
-
+      <Jumbotron />
       <Page>
-        <Jumbotron />
         <Grid
           container
           direction="column"
