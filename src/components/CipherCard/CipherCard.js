@@ -57,6 +57,8 @@ const useStyles = makeStyles({
   encrypted: {
     fontSize: 28,
     color: "#E9C46A",
+    textOverflow: "ellipsis",
+    overflowX: "hidden",
   },
   shift: {
     color: "#264653",
