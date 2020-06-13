@@ -19,10 +19,8 @@ const useCipherCard = (
   const [cipherShift, setCipherShift] = useState(
     shift ? Math.floor(Math.random() * 26) : 0
   );
-  const k1 = numberOfKeys > 0 ? keyGenerator() : "";
-  const k2 = numberOfKeys > 1 ? keyGenerator() : "";
-  const [key_1, setKey_1] = useState(k1);
-  const [key_2, setKey_2] = useState(k2);
+  const [key_1, setKey_1] = useState(numberOfKeys === 1 ? keyGenerator() : "");
+  const [key_2, setKey_2] = useState(numberOfKeys === 2 ? keyGenerator() : "");
 
   const cipherSpecificProps = {
     ...(shift && {
