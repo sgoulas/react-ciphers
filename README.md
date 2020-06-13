@@ -10,3 +10,11 @@ React ciphers is a personal project where I display seven different ciphers and 
 1. `Material-UI`
 1. `Jest`
 1. `Husky`
+
+## Deployed App
+
+The app is currently deployed on https://sgoulas.github.io/react-ciphers/
+
+## Acknowledgements
+
+All cipher information (alongside the encryption / decryption functions) were taken from http://practicalcryptography.com/ciphers/.
