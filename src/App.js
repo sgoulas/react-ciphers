@@ -5,6 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import TextInput from "./components/TextInput/TextInput";
 import { ToastContainer, Slide } from "react-toastify";
+import Jumbotron from "./components/Jumbotron/Jumbotron";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -26,6 +27,7 @@ const App = () => {
       />
 
       <Page>
+        <Jumbotron />
         <Grid
           container
           direction="column"
@@ -33,9 +35,6 @@ const App = () => {
           alignItems="center"
           spacing={3}
         >
-          <Grid item xs={12}>
-            here be stylized jumbotron
-          </Grid>
           <Grid item xs={12}>
             <TextInput text={text} setText={setText} />
           </Grid>
