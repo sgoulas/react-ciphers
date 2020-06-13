@@ -13,7 +13,7 @@ dev tasks:
     ✔ Add key_1, key_2 and shift alongside their 'generator' buttons / selectors to the card. @done(20-06-11 03:00)
     ✔ do not roll shift each time useCipherCard is called. @done(20-06-13 20:59)
     ✔ reduce re-renders @done(20-06-13 20:59)
-    ☐ Fix the height discrepancy due to ciphers' varying description length.
+    ✔ Fix the height discrepancy due to ciphers' varying description length. @done(20-06-13 23:19)
     ☐ Automate jest testing before each commit & only against staged files.
     ☐ Write additional tests.
     ☐ add app icon
