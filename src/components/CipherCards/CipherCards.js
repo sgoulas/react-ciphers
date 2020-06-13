@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CipherCard from "../CipherCard/CipherCard";
 import Grid from "@material-ui/core/Grid";
 import * as atbash from "../../Ciphers/atbash";
@@ -6,6 +6,7 @@ import * as base64 from "../../Ciphers/base64";
 import * as caesar from "../../Ciphers/caesar";
 import * as fourSquare from "../../Ciphers/fourSquare";
 import * as hill from "../../Ciphers/hill";
+import * as railFence from "../../Ciphers/railFence";
 import * as rot13 from "../../Ciphers/rot13";
 
 const ciphers = [
@@ -52,6 +53,15 @@ const ciphers = [
     numberOfKeys: 1,
   },
   {
+    name: "Rail Fence",
+    description:
+      "A transposition cipher that follows a simple rule for mixing up the characters in the plaintext to form the ciphertext.",
+    encrypt: (plainText) => railFence.Encrypt(plainText, 3),
+    decrypt: (codedText) => railFence.Decrypt(codedText, 3),
+    keyGenerator: railFence.GenRandKey,
+    numberOfKeys: 1,
+  },
+  {
     name: "Rot13",
     description:
       "A substitution cipher with a specific key where the letters of the alphabet are offset 13 places",
@@ -61,12 +71,6 @@ const ciphers = [
 ];
 
 const CipherCards = ({ text }) => {
-  console.log("[CipherCards]");
-  // return (
-  //   <Grid item key={ciphers[4].name} xl={4} lg={4} md={4} sm={6} xs={12}>
-  //     <CipherCard text={text} {...ciphers[4]} />
-  //   </Grid>
-  // );
   return (
     <Grid
       container

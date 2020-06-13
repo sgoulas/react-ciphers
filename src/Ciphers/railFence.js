@@ -1,13 +1,14 @@
+export const GenRandKey = () => 9;
+Math.floor(Math.random * 9);
+
 export const Encrypt = (input, key) => {
   const plaintext = input.toLowerCase().replace(/[^a-z]/g, "");
   let ciphertext = "";
   if (plaintext.length < 1) {
-    alert("please enter some plaintext");
-    return;
+    return "please enter some plaintext";
   }
   if (key > Math.floor(2 * (plaintext.length - 1))) {
-    alert("key is too large for the plaintext length.");
-    return;
+    return "key is too large for the plaintext length.";
   }
   if (key === 1) ciphertext = plaintext;
   else {
@@ -32,12 +33,10 @@ export const Encrypt = (input, key) => {
 export const Decrypt = (encryptedText, key) => {
   const ciphertext = encryptedText.toLowerCase().replace(/[^a-z]/g, "");
   if (ciphertext.length < 1) {
-    alert("please enter some ciphertext (letters only)");
-    return;
+    return "please enter some ciphertext (letters only)";
   }
   if (key > Math.floor(2 * (ciphertext.length - 1))) {
-    alert("key is too large for the ciphertext length.");
-    return;
+    return "key is too large for the ciphertext length.";
   }
   if (key === 1) {
     return ciphertext;

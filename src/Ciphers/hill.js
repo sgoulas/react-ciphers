@@ -6,26 +6,21 @@ const randomTwoDigitNum = () => Math.floor(Math.random() * 99);
  * |i00 j00|
  * |i01 j01|
  */
-// export const GenRandKey = () => {
-//   let i00,
-//     i01,
-//     j00,
-//     j01 = 0;
-//   let isInvertible = false;
-//   do {
-//     i00 = randomTwoDigitNum();
-//     i01 = randomTwoDigitNum();
-//     j00 = randomTwoDigitNum();
-//     j01 = randomTwoDigitNum();
-//     isInvertible = i00 * j01 - i01 * j00 !== 0;
-//     console.log(`${i00} ${i01} ${j00} ${j01}`, " isInvertible: ", isInvertible);
-//   } while (!isInvertible);
-
-//   return `${i00} ${i01} ${j00} ${j01}`;
-// };
-
 export const GenRandKey = () => {
-  return "5 17 4 15";
+  let i00,
+    i01,
+    j00,
+    j01 = 0;
+  let isInvertible = false;
+  do {
+    i00 = randomTwoDigitNum();
+    i01 = randomTwoDigitNum();
+    j00 = randomTwoDigitNum();
+    j01 = randomTwoDigitNum();
+    isInvertible = i00 * j01 - i01 * j00 !== 0;
+  } while (!isInvertible);
+
+  return `${i00} ${i01} ${j00} ${j01}`;
 };
 
 export const Encrypt = (input, key) => {

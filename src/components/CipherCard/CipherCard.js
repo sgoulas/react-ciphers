@@ -93,7 +93,6 @@ const CipherCard = ({
     copyEncryptedText,
   } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator, numberOfKeys);
 
-  console.log("[CipherCards]");
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
       {name}
