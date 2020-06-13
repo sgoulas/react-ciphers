@@ -49,8 +49,6 @@ what I was doing wrong:
 
 ```const [encryptedText, setEncryptedText] = useState("");```
 
-//...
-
 ```useEffect(() => {
   useEffect(() => {
     const newEncryptedText = text
