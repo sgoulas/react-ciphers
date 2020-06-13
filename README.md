@@ -2,7 +2,7 @@
 
 ## Introduction
 
-React ciphers is a personal project where I display seven different ciphers and show how they dynamically encrypt / decrypt the user input.
+React ciphers is a personal project I put together in a week, where I display seven different ciphers and show how they dynamically encrypt / decrypt the user input.
 
 ## Technologies used.
 
