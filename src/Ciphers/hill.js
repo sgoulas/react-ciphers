@@ -30,7 +30,7 @@ export const Encrypt = (input, key) => {
   const keys = k.split(" ");
   // do some error checking
   if (plaintext.length < 1) {
-    return "please enter some plaintext (letters and numbers only)";
+    return "please enter some plaintext";
   }
   if (plaintext.length % 2 === 1) {
     plaintext = plaintext + "x";
