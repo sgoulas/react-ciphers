@@ -47,9 +47,6 @@ const useStyles = makeStyles({
     color: "#264653",
   },
   description: {
-    // [theme.breakpoints.down("md")]: {
-    //   display: "none",
-    // },
     fontSize: 16,
     color: "#264653",
   },
@@ -161,11 +158,7 @@ const CipherCard = ({
 
   return (
     <Card className={classes.root}>
-      <CardHeader
-        action={cardHeaderAction}
-        title={title}
-        subheader={"subheader"}
-      />
+      <CardHeader action={cardHeaderAction} title={title} />
       <CardContent className={classes.cardContent}>
         {showDescription ? (
           <Typography paragraph className={classes.description}>
