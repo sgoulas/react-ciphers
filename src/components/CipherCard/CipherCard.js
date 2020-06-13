@@ -31,15 +31,15 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   root: {
-    // [theme.breakpoints.down("md")]: {
-    //   height: "auto",
+    width: "auto",
+    minWidth: 250,
+    // [theme.breakpoints.up("md")]: {
+    //   width: "100%",
     // },
     // [theme.breakpoints.up("md")]: {
     //   height: "auto",
     // },
-    width: "auto",
-    height: 250,
-    minWidth: 250,
+    height: 270,
     backgroundColor: "#2A9D8F",
     color: "#fff",
   },
@@ -138,7 +138,7 @@ const CipherCard = ({
 
   const keysAction = keyGenerator && (
     <Grid container direction="column" justify="center" alignItems="flex-start">
-      <Grid>
+      <Grid item xs={12}>
         <IconButton onClick={generateFirstKey}>
           <VpnKeyIcon />
         </IconButton>
@@ -147,7 +147,7 @@ const CipherCard = ({
         </Typography>
       </Grid>
       {numberOfKeys === 2 && (
-        <Grid>
+        <Grid item xs={12}>
           <IconButton onClick={generateSecondKey}>
             <VpnKeyIcon />
           </IconButton>
