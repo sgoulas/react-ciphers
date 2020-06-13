@@ -101,7 +101,7 @@ const CipherCard = ({
 
   const cardHeaderAction = (
     <Grid container direction="row" justify="center" alignItems="center">
-      <Grid item xs={4}>
+      <Grid item>
         <IconButton onClick={toggleDecryptedText}>
           {showDescription ? null : showDecryption ? (
             <LockOpenIcon />
@@ -110,12 +110,12 @@ const CipherCard = ({
           )}
         </IconButton>
       </Grid>
-      <Grid item xs={4}>
+      <Grid itemScope>
         <IconButton onClick={copyEncryptedText}>
-          <FileCopyIcon />
+          {showDescription ? null : <FileCopyIcon />}
         </IconButton>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item>
         <IconButton onClick={toggleDescription}>
           {showDescription ? <KeyboardReturnIcon /> : <HelpOutlineIcon />}
         </IconButton>

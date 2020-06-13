@@ -11,8 +11,8 @@ dev tasks:
     ✔ create main page grid to add aforementioned media cards @done(20-06-10 03:11)
     ✘ create main page input text that gets passed (with debounce) to cipher cards @cancelled(20-06-10 03:10)
     ✔ Add key_1, key_2 and shift alongside their 'generator' buttons / selectors to the card. @done(20-06-11 03:00)
-    ☐ do not roll shift each time useCipherCard is called.
-    ☐ reduce re-renders
+    ✔ do not roll shift each time useCipherCard is called. @done(20-06-13 20:59)
+    ✔ reduce re-renders @done(20-06-13 20:59)
     ☐ Fix the height discrepancy due to ciphers' varying description length.
     ☐ Automate jest testing before each commit & only against staged files.
     ☐ Write additional tests.
