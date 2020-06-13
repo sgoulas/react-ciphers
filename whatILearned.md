@@ -60,3 +60,5 @@ correct approach:
 const [encryptedText, setEncryptedText] = useState("Encrypted text");
 
 //... same rest
+
+8.) How to automatically run Jest on pre-commit and pre-push and not permitting them if the tests fail.
