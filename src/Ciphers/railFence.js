@@ -1,5 +1,4 @@
-export const GenRandKey = () => 9;
-Math.floor(Math.random * 9);
+export const GenRandKey = () => Math.floor(Math.random() * 9) + 1;
 
 export const Encrypt = (input, key) => {
   const plaintext = input.toLowerCase().replace(/[^a-z]/g, "");

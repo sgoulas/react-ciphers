@@ -56,8 +56,8 @@ const ciphers = [
     name: "Rail Fence",
     description:
       "A transposition cipher that follows a simple rule for mixing up the characters in the plaintext to form the ciphertext.",
-    encrypt: (plainText) => railFence.Encrypt(plainText, 3),
-    decrypt: (codedText) => railFence.Decrypt(codedText, 3),
+    encrypt: (plainText, key) => railFence.Encrypt(plainText, key),
+    decrypt: (codedText, key) => railFence.Decrypt(codedText, key),
     keyGenerator: railFence.GenRandKey,
     numberOfKeys: 1,
   },
