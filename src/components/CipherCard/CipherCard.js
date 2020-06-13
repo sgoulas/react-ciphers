@@ -33,15 +33,14 @@ const useStyles = makeStyles({
   root: {
     width: "auto",
     minWidth: 250,
-    // [theme.breakpoints.up("md")]: {
-    //   width: "100%",
-    // },
-    // [theme.breakpoints.up("md")]: {
-    //   height: "auto",
-    // },
     height: 270,
     backgroundColor: "#2A9D8F",
     color: "#fff",
+  },
+  cardContent: {
+    [theme.breakpoints.up("xl")]: {
+      width: 700,
+    },
   },
   title: {
     fontSize: 18,
@@ -55,6 +54,7 @@ const useStyles = makeStyles({
     color: "#264653",
   },
   encrypted: {
+    minWidth: 50,
     fontSize: 28,
     color: "#E9C46A",
     textOverflow: "ellipsis",
@@ -166,7 +166,7 @@ const CipherCard = ({
         title={title}
         subheader={"subheader"}
       />
-      <CardContent>
+      <CardContent className={classes.cardContent}>
         {showDescription ? (
           <Typography paragraph className={classes.description}>
             {description}
