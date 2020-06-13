@@ -15,7 +15,7 @@ dev tasks:
     ✔ reduce re-renders @done(20-06-13 20:59)
     ✔ Fix the height discrepancy due to ciphers' varying description length. @done(20-06-13 23:19)
     ✔ Automate jest testing before each commit. @done(20-06-13 23:40)
-    ☐ Write additional tests.
+    ✘ Write additional tests. (this is a simple app and we alredy added tests for the most encrypt/decrupt functions)@cancelled(20-06-13 23:48)
     ✔ add app icon @done(20-06-13 23:24)
     ✔ add page title @done(20-06-13 23:24)
     ✔ rewrite logic to a custom hook @done(20-06-11 03:00)
