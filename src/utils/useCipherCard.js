@@ -71,7 +71,7 @@ const useCipherCard = (
     decryptedText,
     cipherShift,
     showDescription,
-    isChecked: showDecryption,
+    showDecryption,
     key_1,
     key_2,
     rollShift,
