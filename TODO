@@ -19,8 +19,8 @@ dev tasks:
     ✔ add app icon @done(20-06-13 23:24)
     ✔ add page title @done(20-06-13 23:24)
     ✔ rewrite logic to a custom hook @done(20-06-11 03:00)
-    ☐ deploy app to github pages
+    ✔ deploy app to github pages @done(20-06-15 22:04)
 
 
 misc tasks:
-    ☐ create a README file.
+    ✔ create a README file. @done(20-06-15 22:04)
