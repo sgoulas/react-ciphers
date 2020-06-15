@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import TextInput from "./components/TextInput/TextInput";
 import { ToastContainer, Slide } from "react-toastify";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
+import { TextProvider } from "./Context/TextContext";
 
 const App = () => {
   const [text, setText] = useState("");
@@ -38,7 +39,9 @@ const App = () => {
             <TextInput text={text} setText={setText} />
           </Grid>
           <Grid item xs={12}>
-            <CipherCards text={text} />
+            <TextProvider value={text}>
+              <CipherCards />
+            </TextProvider>
           </Grid>
         </Grid>
       </Page>

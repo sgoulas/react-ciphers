@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -16,6 +16,7 @@ import CasinoOutlinedIcon from "@material-ui/icons/CasinoOutlined";
 import useCipherCard from "../../utils/useCipherCard";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
+import { TextConsumer } from "../../Context/TextContext";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -68,7 +69,6 @@ const useStyles = makeStyles({
 const CipherCard = ({
   name,
   description,
-  text = "",
   encrypt,
   decrypt,
   shift = false,
@@ -76,6 +76,7 @@ const CipherCard = ({
   numberOfKeys = 0,
 }) => {
   const classes = useStyles();
+  const text = useContext(TextConsumer);
   const {
     encryptedText,
     decryptedText,
