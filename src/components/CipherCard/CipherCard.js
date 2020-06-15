@@ -16,7 +16,7 @@ import CasinoOutlinedIcon from "@material-ui/icons/CasinoOutlined";
 import useCipherCard from "../../utils/useCipherCard";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
-import { TextConsumer } from "../../Context/TextContext";
+import TextContext from "../../Context/TextContext";
 
 const theme = createMuiTheme({
   breakpoints: {
@@ -76,7 +76,7 @@ const CipherCard = ({
   numberOfKeys = 0,
 }) => {
   const classes = useStyles();
-  const text = useContext(TextConsumer);
+  const text = useContext(TextContext);
   const {
     encryptedText,
     decryptedText,
