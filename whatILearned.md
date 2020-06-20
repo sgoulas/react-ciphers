@@ -11,7 +11,8 @@ b.)nano babel.config.js
 c.) inside babel.config.js:
 
 `babel.config.js`
-```module.exports = {
+```
+module.exports = {
   presets: [
     [
       '@babel/preset-env',
