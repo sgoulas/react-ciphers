@@ -11,21 +11,25 @@ import { TextProvider } from "./Context/TextContext";
 const App = () => {
   const [text, setText] = useState("");
 
+  const toastContainer = (
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      transition={Slide}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
+  );
+
   return (
     <>
       <CssBaseline />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        transition={Slide}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      {toastContainer}
       <Jumbotron />
       <Page>
         <Grid
