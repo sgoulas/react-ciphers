@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
-import { createMuiTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
@@ -17,54 +15,7 @@ import useCipherCard from "../../utils/useCipherCard";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 import TextContext from "../../Context/TextContext";
-
-const theme = createMuiTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
-    },
-  },
-});
-
-const useStyles = makeStyles({
-  root: {
-    width: "auto",
-    minWidth: 250,
-    height: 270,
-    backgroundColor: "#2A9D8F",
-    color: "#fff",
-  },
-  cardContent: {
-    [theme.breakpoints.up("xl")]: {
-      width: 700,
-    },
-  },
-  title: {
-    fontSize: 18,
-    color: "#264653",
-  },
-  description: {
-    fontSize: 16,
-    color: "#264653",
-  },
-  encrypted: {
-    minWidth: 50,
-    fontSize: 28,
-    color: "#E9C46A",
-    textOverflow: "ellipsis",
-    overflowX: "hidden",
-  },
-  shift: {
-    color: "#264653",
-  },
-  key: {
-    color: "#264653",
-  },
-});
+import useStyles from "./styles";
 
 const CipherCard = ({
   name,
