@@ -5,92 +5,120 @@ import * as fourSquare from "../Ciphers/fourSquare";
 import * as hill from "../Ciphers/hill";
 import * as railFence from "../Ciphers/railFence";
 import * as rot13 from "../Ciphers/rot13";
+import cipherExecutor from "../utils/cipherExecutor";
 
 describe("Cipher tests", () => {
   const PLAIN_TEXT = "this is a test input to be encrypted by the ciphers";
-  const shift = Math.floor(Math.random() * 26) + 1;
-  const fourSQRKey_1 = fourSquare.GenRandKey();
-  const fourSQRKey_2 = fourSquare.GenRandKey();
-  const hillKey = "5 17 4 15";
-  const railFenceKey = Math.floor(Math.random() * 26) + 1;
+  const shift = 20;
+  const fourSQRKey_1 = "RVPBMNQCUALDEOFITHXSZYWKG";
+  const fourSQRKey_2 = "EWYSBIRUNVGTZOCMQDFAPKXHL";
+  const hillKey = "68 13 27 45";
+  const railFenceKey = 2;
 
   describe("Atbash cipher", () => {
     it("Should encrypt a message", () => {
-      expect(atbash.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
+      expect(cipherExecutor(atbash.Encrypt)(PLAIN_TEXT)({})).toBe(
+        "gsrh rh z gvhg rmkfg gl yv vmxibkgvw yb gsv xrksvih"
+      );
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(atbash.Decrypt(atbash.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
+      expect(
+        cipherExecutor(atbash.Decrypt)(atbash.Encrypt(PLAIN_TEXT))({})
+      ).toBe(PLAIN_TEXT);
     });
   });
 
   describe("Base64 cipher", () => {
     it("Should encrypt a message", () => {
-      expect(base64.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
+      expect(cipherExecutor(base64.Encrypt)(PLAIN_TEXT)({})).toBe(
+        "dGhpcyBpcyBhIHRlc3QgaW5wdXQgdG8gYmUgZW5jcnlwdGVkIGJ5IHRoZSBjaXBoZXJz"
+      );
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(base64.Decrypt(base64.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
+      expect(
+        cipherExecutor(base64.Decrypt)(base64.Encrypt(PLAIN_TEXT))({})
+      ).toBe(PLAIN_TEXT);
     });
   });
 
   describe("Caesar cipher", () => {
     it("Should encrypt a message", () => {
-      expect(caesar.Encrypt(PLAIN_TEXT, shift)).not.toBe(PLAIN_TEXT);
+      expect(cipherExecutor(caesar.Encrypt)(PLAIN_TEXT)({ shift })).toBe(
+        "nbcm cm u nymn chjon ni vy yhwlsjnyx vs nby wcjbylm"
+      );
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(caesar.Decrypt(caesar.Encrypt(PLAIN_TEXT, shift), shift)).toBe(
-        PLAIN_TEXT
-      );
+      expect(
+        cipherExecutor(caesar.Decrypt)(caesar.Encrypt(PLAIN_TEXT, shift))({
+          shift: 20,
+        })
+      ).toBe(PLAIN_TEXT);
     });
   });
 
   describe("FourSquare cipher", () => {
     it("Should encrypt a message", () => {
       expect(
-        fourSquare.Encrypt(PLAIN_TEXT, fourSQRKey_1, fourSQRKey_2)
-      ).not.toBe(PLAIN_TEXT);
+        cipherExecutor(fourSquare.Encrypt)(PLAIN_TEXT)({
+          fourSQRKey_1,
+          fourSQRKey_2,
+        })
+      ).toBe("HNCFCFBMPAXNFZXAXOMWPCVDGOSSVSKFAYBUEVVAHX");
     });
     it("should decrypt an ecrypted message to its original form", () => {
       expect(
-        fourSquare.Decrypt(
-          fourSquare.Encrypt(PLAIN_TEXT, fourSQRKey_1, fourSQRKey_2),
+        cipherExecutor(fourSquare.Decrypt)(
+          "HNCFCFBMPAXNFZXAXOMWPCVDGOSSVSKFAYBUEVVAHX"
+        )({
           fourSQRKey_1,
-          fourSQRKey_2
-        )
+          fourSQRKey_2,
+        })
       ).toInclude(PLAIN_TEXT.replace(/\s/g, ""));
     });
   });
 
   describe("Hill cipher", () => {
     it("Should encrypt a message", () => {
-      expect(hill.Encrypt(PLAIN_TEXT, hillKey)).not.toBe(PLAIN_TEXT);
+      expect(cipherExecutor(hill.Encrypt)(PLAIN_TEXT)({ hillKey })).toBe(
+        "fwymymnxmispnmvrszqzzrtnhxsrjwhvifgytszppn"
+      );
     });
     it("should decrypt an ecrypted message to its original form", () => {
       expect(
-        hill.Decrypt(hill.Encrypt(PLAIN_TEXT, hillKey), hillKey)
+        cipherExecutor(hill.Decrypt)(
+          "fwymymnxmispnmvrszqzzrtnhxsrjwhvifgytszppn"
+        )({ hillKey })
       ).toInclude(PLAIN_TEXT.replace(/\s/g, ""));
     });
   });
 
   describe("Rail fence cipher", () => {
     it("Should encrypt a message", () => {
-      expect(railFence.Encrypt(PLAIN_TEXT, railFenceKey)).not.toBe(PLAIN_TEXT);
+      expect(
+        cipherExecutor(railFence.Encrypt)(PLAIN_TEXT)({ railFenceKey })
+      ).toBe("tiiaetnutbecytdyhcpeshsstsiptoenrpebteihr");
     });
     it("should decrypt an ecrypted message to its original form", () => {
       expect(
-        railFence.Decrypt(
-          railFence.Encrypt(PLAIN_TEXT, railFenceKey),
-          railFenceKey
-        )
-      );
+        cipherExecutor(railFence.Decrypt)(
+          "tiiaetnutbecytdyhcpeshsstsiptoenrpebteihr"
+        )({ railFenceKey })
+      ).toBe("thisisatestinputtobeencryptedbytheciphers");
     });
   });
 
   describe("Rot13 cipher", () => {
     it("Should encrypt a message", () => {
-      expect(rot13.Encrypt(PLAIN_TEXT)).not.toBe(PLAIN_TEXT);
+      expect(cipherExecutor(rot13.Encrypt)(PLAIN_TEXT)({})).toBe(
+        "guvf vf n grfg vachg gb or rapelcgrq ol gur pvcuref"
+      );
     });
     it("should decrypt an ecrypted message to its original form", () => {
-      expect(rot13.Decrypt(rot13.Encrypt(PLAIN_TEXT))).toBe(PLAIN_TEXT);
+      expect(
+        cipherExecutor(rot13.Decrypt)(
+          "guvf vf n grfg vachg gb or rapelcgrq ol gur pvcuref"
+        )({})
+      ).toBe(PLAIN_TEXT);
     });
   });
 });

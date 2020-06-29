@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import hofDecryptor from "./hofDecryptor";
+import cipherExecutor from "./cipherExecutor";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import copy from "copy-to-clipboard";
@@ -51,7 +51,7 @@ const useCipherCard = (
 
   useEffect(() => {
     const newEncryptedText = text
-      ? hofDecryptor(encrypt)(text)(cipherSpecificProps)
+      ? cipherExecutor(encrypt)(text)(cipherSpecificProps)
       : "Encrypted text";
     setEncryptedText(newEncryptedText);
   }, [encrypt, text, cipherSpecificProps]);
@@ -60,7 +60,7 @@ const useCipherCard = (
     const newDecryptedText =
       encryptedText === "Encrypted text"
         ? "Encrypted text"
-        : hofDecryptor(decrypt)(encryptedText)(cipherSpecificProps);
+        : cipherExecutor(decrypt)(encryptedText)(cipherSpecificProps);
     setDecryptedText(newDecryptedText);
   }, [decrypt, encryptedText, cipherSpecificProps]);
 

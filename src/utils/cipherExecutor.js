@@ -1,4 +1,4 @@
-const hofDecryptor = (encryptFunction) => (text) => (...args) => {
+const cipherExecutor = (encryptFunction) => (text) => (...args) => {
   let outputText = "";
   const unzipedArgs = Object.values(...args);
   try {
@@ -10,4 +10,4 @@ const hofDecryptor = (encryptFunction) => (text) => (...args) => {
   return outputText;
 };
 
-export default hofDecryptor;
+export default cipherExecutor;
