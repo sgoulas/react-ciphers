@@ -6,7 +6,7 @@ React ciphers is a personal project I put together in a week, where I display se
 
 ## Technologies used.
 
-1. `React` (^16.13.1 fully functional approach with hooks)
+1. `React` (^16.13.1 fully functional approach with hooks (custom ones too))
 1. `Material-UI`
 1. `Jest`
 1. `Husky`
