@@ -8,7 +8,7 @@ React ciphers is a personal project I put together in a week, where I display se
 
 1. `React` (^16.13.1 fully functional approach with hooks (custom ones too))
 1. `Material-UI`
-1. `Jest`
+1. `Jest` + `react-testing-library`
 1. `Husky`
 
 ## Deployed App
