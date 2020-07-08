@@ -11,6 +11,7 @@ b.)nano babel.config.js
 c.) inside babel.config.js:
 
 `babel.config.js`
+
 ```
 module.exports = {
   presets: [
@@ -25,7 +26,6 @@ module.exports = {
   ],
 };
 ```
-
 
 d.) Instead of export default you should export {myExportedFunction} or export const foo = () =>{}
 
@@ -42,13 +42,14 @@ For jest-extended to be implemented, also create a jest.config.js file and setup
 ### 5.) Set test script from 'react-scripts test' to 'jest' to run jest with 'npm test'
 
 ### 6.) Changed the capitalization from Filename to filename but git did not pick up the renaming.
+
 Solution => rename filename to 1filename, add, rename 1filename to filename, add, commit.
 
 ### 7.) Constant re-renders.
 
 what I was doing wrong:
 
-```const [encryptedText, setEncryptedText] = useState("");```
+`const [encryptedText, setEncryptedText] = useState("");`
 
 ```useEffect(() => {
   useEffect(() => {
@@ -64,6 +65,30 @@ So the 'encryptedText' I was getting back was '', then 'Encrypted text' and that
 
 correct approach:
 
-```const [encryptedText, setEncryptedText] = useState("Encrypted text");```
+`const [encryptedText, setEncryptedText] = useState("Encrypted text");`
 
 ### 8.) How to automatically run Jest on pre-commit and pre-push and not permitting them if the tests fail.
+
+### 9.) How to configure jest + react-testing-library + babel
+
+At first, Jest was not recognizing the '<' token when rendering a react component. The solution was to include preset-react
+in the `babel.config.js`.
+
+```module.exports = {
+  presets: ["@babel/preset-env", "@babel/preset-react"],
+};
+
+```
+
+Then the problem was that Jest was not recognizing `.css` files being imported in `.jss` files. The solution was to
+stub the css files using the `moduleNameMapper` configuration. So the updated version of `jest.config.js` was
+
+```module.exports = {
+  verbose: true,
+  setupFilesAfterEnv: ["jest-extended"],
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
+};
+
+```
