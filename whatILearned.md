@@ -71,7 +71,7 @@ correct approach:
 
 ### 9.) How to configure jest + react-testing-library + babel
 
-At first, Jest was not recognizing the `<` token when rendering a react component. The solution was to include preset-react
+At first, Jest was not recognizing the `<` token when rendering a react component. The solution was to include `preset-react`
 in the `babel.config.js`.
 
 ```module.exports = {
