@@ -44,6 +44,12 @@ const CipherCard = ({
     copyEncryptedText,
   } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator, numberOfKeys);
 
+  const encryptedTextID = `${name}-encrypted-text`;
+  const cipherDescID = `${name}-description`;
+  const toggleDecryptedTextButtonID = `${name}-toggle-decryption`;
+  const toggleDescriptionButtonID = `${name}-toggle-description`;
+  const copyTextButtonID = `${name}-copy-encrypted-text-button`;
+
   const title = (
     <Typography className={classes.title} color="textSecondary" gutterBottom>
       {name}
@@ -53,7 +59,10 @@ const CipherCard = ({
   const cardHeaderAction = (
     <Grid container direction="row" justify="center" alignItems="center">
       <Grid item>
-        <IconButton onClick={toggleDecryptedText}>
+        <IconButton
+          onClick={toggleDecryptedText}
+          id={toggleDecryptedTextButtonID}
+        >
           {showDescription ? null : showDecryption ? (
             <LockOpenIcon />
           ) : (
@@ -62,12 +71,12 @@ const CipherCard = ({
         </IconButton>
       </Grid>
       <Grid itemScope>
-        <IconButton onClick={copyEncryptedText}>
+        <IconButton onClick={copyEncryptedText} id={copyTextButtonID}>
           {showDescription ? null : <FileCopyIcon />}
         </IconButton>
       </Grid>
       <Grid item>
-        <IconButton onClick={toggleDescription}>
+        <IconButton onClick={toggleDescription} id={toggleDescriptionButtonID}>
           {showDescription ? <KeyboardReturnIcon /> : <HelpOutlineIcon />}
         </IconButton>
       </Grid>
@@ -113,11 +122,19 @@ const CipherCard = ({
       <CardHeader action={cardHeaderAction} title={title} />
       <CardContent className={classes.cardContent}>
         {showDescription ? (
-          <Typography paragraph className={classes.description}>
+          <Typography
+            paragraph
+            className={classes.description}
+            id={cipherDescID}
+          >
             {description}
           </Typography>
         ) : (
-          <Typography variant="h5" className={classes.encrypted}>
+          <Typography
+            variant="h5"
+            className={classes.encrypted}
+            id={encryptedTextID}
+          >
             {showDecryption ? decryptedText : encryptedText}
           </Typography>
         )}
