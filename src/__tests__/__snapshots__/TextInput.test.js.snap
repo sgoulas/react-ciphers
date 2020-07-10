@@ -3,12 +3,11 @@
 exports[`TextInput suite renders correctly 1`] = `
 <div
   className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-3 makeStyles-margin-2"
+  data-testid="plain-text-input"
 >
   <label
     className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
     data-shrink={false}
-    htmlFor="plain-text-input"
-    id="plain-text-input-label"
   >
     Start typing
   </label>
@@ -21,7 +20,6 @@ exports[`TextInput suite renders correctly 1`] = `
       autoFocus={false}
       className="MuiInputBase-input MuiInput-input"
       disabled={false}
-      id="plain-text-input"
       onAnimationStart={[Function]}
       onBlur={[Function]}
       onChange={[Function]}

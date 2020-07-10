@@ -92,3 +92,7 @@ stub the css files using the `moduleNameMapper` configuration. So the updated ve
 };
 
 ```
+
+### 10.) How to setup multiple test libraries / extenders in a centralized way
+
+Use `setupFilesAfterEnv` property to indicate a `setup` javascript file that imports all the libraries / extenders that you want to include in your test like "jest-extended" of point `2`.

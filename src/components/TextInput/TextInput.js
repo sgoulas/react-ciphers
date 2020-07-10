@@ -48,7 +48,7 @@ const TextInput = (props) => {
     <CssTextField
       className={classes.margin}
       label="Start typing"
-      id="plain-text-input"
+      data-testid="plain-text-input"
       value={text}
       onChange={handleChange}
     />
