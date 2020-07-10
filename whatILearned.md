@@ -96,3 +96,7 @@ stub the css files using the `moduleNameMapper` configuration. So the updated ve
 ### 10.) How to setup multiple test libraries / extenders in a centralized way
 
 Use `setupFilesAfterEnv` property to indicate a `setup` javascript file that imports all the libraries / extenders that you want to include in your test like "jest-extended" of point `2`.
+
+### 11.) Difference between render of @testing-library and renderer of react-test-renderer
+
+`@testing-library` `render` method creates a dom element and appends it in the document body, whereas `react-test-renderer` `renderer` method renders React components are pure objects without depending on the dom or a native mobile environment.
