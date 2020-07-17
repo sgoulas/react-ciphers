@@ -106,3 +106,48 @@ Use `setupFilesAfterEnv` property to indicate a `setup` javascript file that imp
 By keeping both `text` and `setText` inside the <TextField /> it is easier to write a unit test since the update functionality
 is enclosed inside the component. Updates in the father can take place via a single `updateInput` function. This also reduces
 the amount of constantly changing props that are passed down to the <TextField /> component, thus increasing the performance.
+
+### 13.) Material-UI components need different handling with react-testing-library.
+
+For example, the <TextField /> component is not just an input, but a wrapper of dom elements (like form control) plus an input.
+
+There are two different approaches to test the component:
+
+add the `data-testid` attribute on the <TextField /> component and then query inside the `.test.js` file for the `input` element
+
+```<CssTextField
+      className={classes.margin}
+      label="Start typing"
+      data-testid="plain-text-input"
+      value={text}
+      onChange={handleChange}
+    />
+
+    // ....
+
+        const textInput = renderer
+      .getByTestId("plain-text-input")
+      .querySelector("input");
+
+```
+
+or add the `data-testid` attribute directly to the `input` element and thus query directly for it.
+
+```<CssTextField
+      className={classes.margin}
+      label="Start typing"
+      inputProps={{ "data-testid": "plain-text-input" }}
+      value={text}
+      onChange={handleChange}
+    />
+
+    // ....
+      const textInput = renderer.getByTestId("plain-text-input");
+
+```
+
+The `first` way makes the unit test more verbose but keeps the component simple.
+The `second` way makes the unit test easier to read but makes the component more verbose.
+
+That being said, the `second` way feels more correct, since it adds the data-testid to the dom element we actually want to test,
+rather to the wrapper that contains the element we want to test.
