@@ -12,12 +12,27 @@ describe("CipherCard suite", () => {
       keyGenerator: () => {},
     };
     const renderer = render(<CipherCard {...cipherCardProps} />);
+    const toggleDecryptionButton = renderer.getByTestId(
+      "test-toggle-decryption"
+    );
     const toggleDescriptionButton = renderer.getByTestId(
       "test-toggle-description"
     );
 
-    return { toggleDescriptionButton, ...renderer };
+    return { toggleDecryptionButton, toggleDescriptionButton, ...renderer };
   };
+
+  it("should toggle the cipher decryption on button click", () => {
+    const { toggleDecryptionButton } = setup();
+    expect(screen.getByTestId("test-encrypted-text")).toBeVisible();
+    expect(screen.queryByTestId("test-decrypted-text")).not.toBeInTheDocument();
+    fireEvent.click(toggleDecryptionButton);
+    expect(screen.queryByTestId("test-encrypted-text")).not.toBeInTheDocument();
+    expect(screen.getByTestId("test-decrypted-text")).toBeVisible();
+    fireEvent.click(toggleDecryptionButton);
+    expect(screen.getByTestId("test-encrypted-text")).toBeVisible();
+    expect(screen.queryByTestId("test-decrypted-text")).not.toBeInTheDocument();
+  });
 
   it("should toggle the cipher description on button click", () => {
     const { toggleDescriptionButton } = setup();

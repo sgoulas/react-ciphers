@@ -45,6 +45,7 @@ const CipherCard = ({
   } = useCipherCard(text, encrypt, decrypt, shift, keyGenerator, numberOfKeys);
 
   const encryptedTextID = `${name}-encrypted-text`;
+  const decryptedTextID = `${name}-decrypted-text`;
   const cipherDescID = `${name}-description`;
   const toggleDecryptedTextButtonID = `${name}-toggle-decryption`;
   const toggleDescriptionButtonID = `${name}-toggle-description`;
@@ -136,7 +137,7 @@ const CipherCard = ({
           <Typography
             variant="h5"
             className={classes.encrypted}
-            data-testid={encryptedTextID}
+            data-testid={showDecryption ? decryptedTextID : encryptedTextID}
           >
             {showDecryption ? decryptedText : encryptedText}
           </Typography>
