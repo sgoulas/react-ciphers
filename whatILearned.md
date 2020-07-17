@@ -115,7 +115,8 @@ There are two different approaches to test the component:
 
 add the `data-testid` attribute on the <TextField /> component and then query inside the `.test.js` file for the `input` element
 
-```<CssTextField
+```
+<CssTextField
       className={classes.margin}
       label="Start typing"
       data-testid="plain-text-input"
@@ -133,7 +134,8 @@ add the `data-testid` attribute on the <TextField /> component and then query in
 
 or add the `data-testid` attribute directly to the `input` element and thus query directly for it.
 
-```<CssTextField
+```
+<CssTextField
       className={classes.margin}
       label="Start typing"
       inputProps={{ "data-testid": "plain-text-input" }}
