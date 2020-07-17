@@ -100,3 +100,9 @@ Use `setupFilesAfterEnv` property to indicate a `setup` javascript file that imp
 ### 11.) Difference between render of @testing-library and renderer of react-test-renderer
 
 `@testing-library` `render` method creates a dom element and appends it in the document body, whereas `react-test-renderer` `renderer` method renders React components are pure objects without depending on the dom or a native mobile environment.
+
+### 12.) It is harder to test a <TextField /> component that gets both `text` and `setText` from its parent component.
+
+By keeping both `text` and `setText` inside the <TextField /> it is easier to write a unit test since the update functionality
+is enclosed inside the component. Updates in the father can take place via a single `updateInput` function. This also reduces
+the amount of constantly changing props that are passed down to the <TextField /> component, thus increasing the performance.

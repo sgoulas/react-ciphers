@@ -3,7 +3,6 @@
 exports[`TextInput suite renders correctly 1`] = `
 <div
   className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-3 makeStyles-margin-2"
-  data-testid="plain-text-input"
 >
   <label
     className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -19,6 +18,7 @@ exports[`TextInput suite renders correctly 1`] = `
       aria-invalid={false}
       autoFocus={false}
       className="MuiInputBase-input MuiInput-input"
+      data-testid="plain-text-input"
       disabled={false}
       onAnimationStart={[Function]}
       onBlur={[Function]}

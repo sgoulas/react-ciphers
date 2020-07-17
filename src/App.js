@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Page from "./components/Page/Page";
 import CipherCards from "./components/CipherCards/CipherCards";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,7 +9,12 @@ import Jumbotron from "./components/Jumbotron/Jumbotron";
 import { TextProvider } from "./Context/TextContext";
 
 const App = () => {
-  const [text, setText] = useState("");
+  const [userInput, setUserInput] = useState("");
+
+  const updateUserInputCallback = useCallback(
+    (newInput) => setUserInput(newInput),
+    [setUserInput]
+  );
 
   const toastContainer = (
     <ToastContainer
@@ -40,10 +45,10 @@ const App = () => {
           spacing={3}
         >
           <Grid item xs={12}>
-            <TextInput text={text} setText={setText} />
+            <TextInput updateUserInputCallback={updateUserInputCallback} />
           </Grid>
           <Grid item xs={12}>
-            <TextProvider value={text}>
+            <TextProvider value={userInput}>
               <CipherCards />
             </TextProvider>
           </Grid>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, memo } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
@@ -35,24 +35,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TextInput = (props) => {
-  const { text, setText } = props;
+const TextInput = ({ updateUserInputCallback }) => {
+  const [text, setText] = useState("");
   const classes = useStyles();
 
   const handleChange = (event) => {
     const { value } = event.target;
     setText(value);
+    updateUserInputCallback(value);
   };
 
   return (
     <CssTextField
       className={classes.margin}
       label="Start typing"
-      data-testid="plain-text-input"
+      inputProps={{ "data-testid": "plain-text-input" }}
       value={text}
       onChange={handleChange}
     />
   );
 };
 
-export default TextInput;
+const memoizedTextInput = memo(TextInput);
+
+export default memoizedTextInput;
