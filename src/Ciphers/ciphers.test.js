@@ -1,10 +1,10 @@
-import * as atbash from "../Ciphers/atbash";
-import * as base64 from "../Ciphers/base64";
-import * as caesar from "../Ciphers/caesar";
-import * as fourSquare from "../Ciphers/fourSquare";
-import * as hill from "../Ciphers/hill";
-import * as railFence from "../Ciphers/railFence";
-import * as rot13 from "../Ciphers/rot13";
+import * as atbash from "./atbash";
+import * as base64 from "./base64";
+import * as caesar from "./caesar";
+import * as fourSquare from "./fourSquare";
+import * as hill from "./hill";
+import * as railFence from "./railFence";
+import * as rot13 from "./rot13";
 import cipherExecutor from "../utils/cipherExecutor";
 
 describe("Cipher tests", () => {

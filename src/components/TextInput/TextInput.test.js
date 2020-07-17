@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import renderer from "react-test-renderer";
-import TextInput from "../components/TextInput/TextInput";
+import TextInput from "./TextInput";
 
 describe("TextInput suite", () => {
   const setup = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import CipherCards from "../components/CipherCards/CipherCards";
-import CipherCard from "../components/CipherCard/CipherCard";
+import CipherCards from "./CipherCards";
+import CipherCard from "../CipherCard/CipherCard";
 
 describe("CipherCards suite", () => {
   it("should render 7 <CipherCard /> components", () => {
