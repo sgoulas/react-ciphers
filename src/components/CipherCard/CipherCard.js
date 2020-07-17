@@ -61,7 +61,7 @@ const CipherCard = ({
       <Grid item>
         <IconButton
           onClick={toggleDecryptedText}
-          id={toggleDecryptedTextButtonID}
+          data-testid={toggleDecryptedTextButtonID}
         >
           {showDescription ? null : showDecryption ? (
             <LockOpenIcon />
@@ -71,12 +71,15 @@ const CipherCard = ({
         </IconButton>
       </Grid>
       <Grid itemScope>
-        <IconButton onClick={copyEncryptedText} id={copyTextButtonID}>
+        <IconButton onClick={copyEncryptedText} data-testid={copyTextButtonID}>
           {showDescription ? null : <FileCopyIcon />}
         </IconButton>
       </Grid>
       <Grid item>
-        <IconButton onClick={toggleDescription} id={toggleDescriptionButtonID}>
+        <IconButton
+          onClick={toggleDescription}
+          data-testid={toggleDescriptionButtonID}
+        >
           {showDescription ? <KeyboardReturnIcon /> : <HelpOutlineIcon />}
         </IconButton>
       </Grid>
@@ -125,7 +128,7 @@ const CipherCard = ({
           <Typography
             paragraph
             className={classes.description}
-            id={cipherDescID}
+            data-testid={cipherDescID}
           >
             {description}
           </Typography>
@@ -133,7 +136,7 @@ const CipherCard = ({
           <Typography
             variant="h5"
             className={classes.encrypted}
-            id={encryptedTextID}
+            data-testid={encryptedTextID}
           >
             {showDecryption ? decryptedText : encryptedText}
           </Typography>

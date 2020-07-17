@@ -154,3 +154,5 @@ The `second` way makes the unit test easier to read but makes the component more
 
 That being said, the `second` way feels more correct, since it adds the data-testid to the dom element we actually want to test,
 rather to the wrapper that contains the element we want to test.
+
+### 14.) Use queryBy instead of getBy when wanting to test that something does not exist, since the getBy matcher throws an error when it does not find what it is looking for.
