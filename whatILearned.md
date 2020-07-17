@@ -126,7 +126,7 @@ add the `data-testid` attribute on the <TextField /> component and then query in
 
     // ....
 
-        const textInput = renderer
+    const textInput = renderer
       .getByTestId("plain-text-input")
       .querySelector("input");
 
@@ -144,7 +144,8 @@ or add the `data-testid` attribute directly to the `input` element and thus quer
     />
 
     // ....
-      const textInput = renderer.getByTestId("plain-text-input");
+
+    const textInput = renderer.getByTestId("plain-text-input");
 
 ```
 
